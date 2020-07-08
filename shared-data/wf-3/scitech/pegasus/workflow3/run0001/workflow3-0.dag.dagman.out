@@ -202,3 +202,27 @@
 07/08/20 16:15:37     2       0        1       0       0         15        0
 07/08/20 16:15:37 0 job proc(s) currently held
 07/08/20 16:15:37 DAGMan Runtime Statistics: [ EventCycleTimeStd = 0.03920694717949798; EventCycleTimeMax = 0.1210658550262451; SubmitCycleTimeMin = 0.0004270076751708984; SubmitCycleTimeAvg = 0.02545700754438128; SleepCycleTimeCount = 6.0; SubmitCycleTimeCount = 7.0; SubmitCycleTimeMax = 0.1142539978027344; SleepCycleTimeMin = 4.973139047622681; SubmitCycleTimeSum = 0.1781990528106689; LogProcessCycleTimeStd = 0.01115141763570875; SubmitCycleTimeStd = 0.04458895905144745; LogProcessCycleTimeAvg = 0.01880764961242676; EventCycleTimeMin = 0.01057195663452148; LogProcessCycleTimeMax = 0.0296790599822998; LogProcessCycleTimeMin = 0.004269123077392578; LogProcessCycleTimeSum = 0.09403824806213379; LogProcessCycleTimeCount = 5.0; EventCycleTimeSum = 0.2984616756439209; SleepCycleTimeSum = 30.48793125152588; SleepCycleTimeAvg = 5.081321875254313; SleepCycleTimeStd = 0.1297595433551138; SleepCycleTimeMax = 5.256802082061768; EventCycleTimeCount = 6.0; EventCycleTimeAvg = 0.04974361260732015; ]
+07/08/20 16:21:38 Received SIGUSR1
+07/08/20 16:21:38 Aborting DAG...
+07/08/20 16:21:38 Writing Rescue DAG to workflow3-0.dag.rescue001...
+07/08/20 16:21:38 Removing submitted jobs...
+07/08/20 16:21:38 Removing any/all submitted HTCondor jobs...
+07/08/20 16:21:38 Running: /usr/bin/condor_rm -const DAGManJobId' '=?=' '8
+07/08/20 16:21:38 Note: 0 total job deferrals because of -MaxJobs limit (0)
+07/08/20 16:21:38 Note: 0 total job deferrals because of -MaxIdle limit (1000)
+07/08/20 16:21:38 Note: 0 total job deferrals because of node category throttles
+07/08/20 16:21:38 Note: 0 total PRE script deferrals because of -MaxPre limit (20) or DEFER
+07/08/20 16:21:38 Note: 0 total POST script deferrals because of -MaxPost limit (20) or DEFER
+07/08/20 16:21:38 DAG status: 4 (DAG_STATUS_RM)
+07/08/20 16:21:38 Of 18 nodes total:
+07/08/20 16:21:38  Done     Pre   Queued    Post   Ready   Un-Ready   Failed
+07/08/20 16:21:38   ===     ===      ===     ===     ===        ===      ===
+07/08/20 16:21:38     2       0        1       0       0         15        0
+07/08/20 16:21:38 0 job proc(s) currently held
+07/08/20 16:21:38 DAGMan Runtime Statistics: [ EventCycleTimeStd = 0.01617787801472795; EventCycleTimeMax = 0.1210658550262451; SubmitCycleTimeMin = 0.0002269744873046875; SubmitCycleTimeAvg = 0.003212168246884889; SleepCycleTimeCount = 78.0; SubmitCycleTimeCount = 79.0; SubmitCycleTimeMax = 0.1142539978027344; SleepCycleTimeMin = 4.95202898979187; SubmitCycleTimeSum = 0.2537612915039062; LogProcessCycleTimeStd = 0.01115141763570875; SubmitCycleTimeStd = 0.01421217734708058; LogProcessCycleTimeAvg = 0.01880764961242676; EventCycleTimeMin = 0.0005459785461425781; LogProcessCycleTimeMax = 0.0296790599822998; LogProcessCycleTimeMin = 0.004269123077392578; LogProcessCycleTimeSum = 0.09403824806213379; LogProcessCycleTimeCount = 5.0; EventCycleTimeSum = 0.5023307800292969; SleepCycleTimeSum = 390.5667541027069; SleepCycleTimeAvg = 5.007266078239832; SleepCycleTimeStd = 0.04170168965810993; SleepCycleTimeMax = 5.256802082061768; EventCycleTimeCount = 79.0; EventCycleTimeAvg = 0.006358617468725277; ]
+07/08/20 16:21:38 Wrote metrics file workflow3-0.dag.metrics.
+07/08/20 16:21:38 Reporting metrics to Pegasus metrics server(s); output is in workflow3-0.dag.metrics.out.
+07/08/20 16:21:38 Running command </usr/libexec/condor/condor_dagman_metrics_reporter -f workflow3-0.dag.metrics -s -t 100>
+07/08/20 16:21:38 Warning: mysin has length 0 (ignore if produced by DAGMan; see gittrac #4987, #5031)
+07/08/20 16:21:38 DAGMan Runtime Statistics: [ EventCycleTimeStd = 0.01617787801472795; EventCycleTimeMax = 0.1210658550262451; SubmitCycleTimeMin = 0.0002269744873046875; SubmitCycleTimeAvg = 0.003212168246884889; SleepCycleTimeCount = 78.0; SubmitCycleTimeCount = 79.0; SubmitCycleTimeMax = 0.1142539978027344; SleepCycleTimeMin = 4.95202898979187; SubmitCycleTimeSum = 0.2537612915039062; LogProcessCycleTimeStd = 0.01115141763570875; SubmitCycleTimeStd = 0.01421217734708058; LogProcessCycleTimeAvg = 0.01880764961242676; EventCycleTimeMin = 0.0005459785461425781; LogProcessCycleTimeMax = 0.0296790599822998; LogProcessCycleTimeMin = 0.004269123077392578; LogProcessCycleTimeSum = 0.09403824806213379; LogProcessCycleTimeCount = 5.0; EventCycleTimeSum = 0.5023307800292969; SleepCycleTimeSum = 390.5667541027069; SleepCycleTimeAvg = 5.007266078239832; SleepCycleTimeStd = 0.04170168965810993; SleepCycleTimeMax = 5.256802082061768; EventCycleTimeCount = 79.0; EventCycleTimeAvg = 0.006358617468725277; ]
+07/08/20 16:21:38 **** condor_scheduniv_exec.8.0 (condor_DAGMAN) pid 2110 EXITING WITH STATUS 2

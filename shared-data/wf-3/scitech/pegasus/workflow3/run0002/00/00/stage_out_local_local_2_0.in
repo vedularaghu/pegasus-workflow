@@ -1,0 +1,13 @@
+[
+ { "type": "transfer",
+   "linkage": "output",
+   "lfn": "result.tar.gz",
+   "id": 1,
+   "verify_checksum_remote": true,
+   "src_urls": [
+     { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-scratch/LOCAL/scitech/pegasus/workflow3/run0002/./result.tar.gz" }
+   ],
+   "dest_urls": [
+     { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-output/result.tar.gz" }
+   ] }
+]

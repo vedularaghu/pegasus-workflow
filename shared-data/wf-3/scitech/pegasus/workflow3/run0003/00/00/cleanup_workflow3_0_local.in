@@ -1,0 +1,6 @@
+[
+  {
+    "id": 1,
+    "type": "remove",
+    "target": { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-scratch/LOCAL/scitech/pegasus/workflow3/run0003", "recursive": "True" } }
+]

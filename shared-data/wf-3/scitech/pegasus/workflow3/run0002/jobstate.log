@@ -1,0 +1,32 @@
+1594250535 INTERNAL *** MONITORD_STARTED ***
+1594250533 INTERNAL *** DAGMAN_STARTED 12.0 ***
+1594250537 create_dir_workflow3_0_local SUBMIT 13.0 local - 1
+1594250538 create_dir_workflow3_0_local EXECUTE 13.0 local - 1
+1594250541 create_dir_workflow3_0_local JOB_TERMINATED 13.0 local - 1
+1594250542 create_dir_workflow3_0_local JOB_SUCCESS 0 local - 1
+1594250542 create_dir_workflow3_0_local POST_SCRIPT_STARTED 13.0 local - 1
+1594250543 create_dir_workflow3_0_local POST_SCRIPT_TERMINATED 13.0 local - 1
+1594250547 create_dir_workflow3_0_local POST_SCRIPT_SUCCESS 0 local - 1
+1594250552 stage_in_local_local_0_0 SUBMIT 14.0 local - 2
+1594250552 stage_in_local_local_1_0 SUBMIT 15.0 local - 3
+1594250556 stage_in_local_local_1_0 EXECUTE 15.0 local - 3
+1594250556 stage_in_local_local_0_0 EXECUTE 14.0 local - 2
+1594250558 stage_in_local_local_1_0 JOB_TERMINATED 15.0 local - 3
+1594250562 stage_in_local_local_1_0 JOB_SUCCESS 0 local - 3
+1594250562 stage_in_local_local_1_0 POST_SCRIPT_STARTED 15.0 local - 3
+1594250562 stage_in_local_local_1_0 POST_SCRIPT_TERMINATED 15.0 local - 3
+1594250567 stage_in_local_local_1_0 POST_SCRIPT_SUCCESS 0 local - 3
+1594251000 stage_in_local_local_0_0 JOB_TERMINATED 14.0 local - 2
+1594251002 stage_in_local_local_0_0 JOB_FAILURE 1 local - 2
+1594251002 stage_in_local_local_0_0 POST_SCRIPT_STARTED 14.0 local - 2
+1594251003 stage_in_local_local_0_0 POST_SCRIPT_TERMINATED 14.0 local - 2
+1594251007 stage_in_local_local_0_0 POST_SCRIPT_FAILURE 1 local - 2
+1594251012 stage_in_local_local_0_0 SUBMIT 16.0 local - 4
+1594251013 stage_in_local_local_0_0 EXECUTE 16.0 local - 4
+1594251455 stage_in_local_local_0_0 JOB_TERMINATED 16.0 local - 4
+1594251457 stage_in_local_local_0_0 JOB_FAILURE 1 local - 4
+1594251457 stage_in_local_local_0_0 POST_SCRIPT_STARTED 16.0 local - 4
+1594251457 stage_in_local_local_0_0 POST_SCRIPT_TERMINATED 16.0 local - 4
+1594251462 stage_in_local_local_0_0 POST_SCRIPT_FAILURE 1 local - 4
+1594251462 INTERNAL *** DAGMAN_FINISHED 1 ***
+1594251464 INTERNAL *** MONITORD_FINISHED 0 ***

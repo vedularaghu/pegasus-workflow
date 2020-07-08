@@ -1,0 +1,2 @@
+{"name": ".//00/00/create_dir_workflow3_0_local.out", "timestamp": "2020-07-08T16:43:37.109827", "exitcode": 0, "app_exitcode": 0, "retry": 0, "std_out": "", "std_err": ""}
+{"name": ".//00/00/stage_in_local_local_1_0.out", "timestamp": "2020-07-08T16:43:56.557245", "exitcode": 0, "app_exitcode": 0, "retry": 0, "std_out": "", "std_err": ""}

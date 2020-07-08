@@ -1,0 +1,133 @@
+[
+ { "type": "transfer",
+   "linkage": "input",
+   "lfn": "nums4.txt",
+   "id": 1,
+   "generate_checksum": true,
+   "src_urls": [
+     { "site_label": "local", "url": "/home/scitech/shared-data/wf-3/nums4.txt", "priority": 10 }
+   ],
+   "dest_urls": [
+     { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-scratch/LOCAL/scitech/pegasus/workflow3/run0003/./nums4.txt" }
+   ] }
+ ,
+ { "type": "transfer",
+   "linkage": "input",
+   "lfn": "nums9.txt",
+   "id": 2,
+   "generate_checksum": true,
+   "src_urls": [
+     { "site_label": "local", "url": "/home/scitech/shared-data/wf-3/nums9.txt", "priority": 10 }
+   ],
+   "dest_urls": [
+     { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-scratch/LOCAL/scitech/pegasus/workflow3/run0003/./nums9.txt" }
+   ] }
+ ,
+ { "type": "transfer",
+   "linkage": "input",
+   "lfn": "nums3.txt",
+   "id": 3,
+   "generate_checksum": true,
+   "src_urls": [
+     { "site_label": "local", "url": "/home/scitech/shared-data/wf-3/nums3.txt", "priority": 10 }
+   ],
+   "dest_urls": [
+     { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-scratch/LOCAL/scitech/pegasus/workflow3/run0003/./nums3.txt" }
+   ] }
+ ,
+ { "type": "transfer",
+   "linkage": "input",
+   "lfn": "nums10.txt",
+   "id": 4,
+   "generate_checksum": true,
+   "src_urls": [
+     { "site_label": "local", "url": "/home/scitech/shared-data/wf-3/nums10.txt", "priority": 10 }
+   ],
+   "dest_urls": [
+     { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-scratch/LOCAL/scitech/pegasus/workflow3/run0003/./nums10.txt" }
+   ] }
+ ,
+ { "type": "transfer",
+   "linkage": "input",
+   "lfn": "nums1.txt",
+   "id": 5,
+   "generate_checksum": true,
+   "src_urls": [
+     { "site_label": "local", "url": "/home/scitech/shared-data/wf-3/nums1.txt", "priority": 10 }
+   ],
+   "dest_urls": [
+     { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-scratch/LOCAL/scitech/pegasus/workflow3/run0003/./nums1.txt" }
+   ] }
+ ,
+ { "type": "transfer",
+   "linkage": "input",
+   "lfn": "seperate",
+   "id": 6,
+   "generate_checksum": true,
+   "src_urls": [
+     { "site_label": "local", "url": "/home/scitech/shared-data/wf-3/seperate.py", "priority": 10 }
+   ],
+   "dest_urls": [
+     { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-scratch/LOCAL/scitech/pegasus/workflow3/run0003/./seperate" }
+   ] }
+ ,
+ { "type": "transfer",
+   "linkage": "input",
+   "lfn": "nums2.txt",
+   "id": 7,
+   "generate_checksum": true,
+   "src_urls": [
+     { "site_label": "local", "url": "/home/scitech/shared-data/wf-3/nums2.txt", "priority": 10 }
+   ],
+   "dest_urls": [
+     { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-scratch/LOCAL/scitech/pegasus/workflow3/run0003/./nums2.txt" }
+   ] }
+ ,
+ { "type": "transfer",
+   "linkage": "input",
+   "lfn": "nums8.txt",
+   "id": 8,
+   "generate_checksum": true,
+   "src_urls": [
+     { "site_label": "local", "url": "/home/scitech/shared-data/wf-3/nums8.txt", "priority": 10 }
+   ],
+   "dest_urls": [
+     { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-scratch/LOCAL/scitech/pegasus/workflow3/run0003/./nums8.txt" }
+   ] }
+ ,
+ { "type": "transfer",
+   "linkage": "input",
+   "lfn": "nums5.txt",
+   "id": 9,
+   "generate_checksum": true,
+   "src_urls": [
+     { "site_label": "local", "url": "/home/scitech/shared-data/wf-3/nums5.txt", "priority": 10 }
+   ],
+   "dest_urls": [
+     { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-scratch/LOCAL/scitech/pegasus/workflow3/run0003/./nums5.txt" }
+   ] }
+ ,
+ { "type": "transfer",
+   "linkage": "input",
+   "lfn": "nums6.txt",
+   "id": 10,
+   "generate_checksum": true,
+   "src_urls": [
+     { "site_label": "local", "url": "/home/scitech/shared-data/wf-3/nums6.txt", "priority": 10 }
+   ],
+   "dest_urls": [
+     { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-scratch/LOCAL/scitech/pegasus/workflow3/run0003/./nums6.txt" }
+   ] }
+ ,
+ { "type": "transfer",
+   "linkage": "input",
+   "lfn": "nums7.txt",
+   "id": 11,
+   "generate_checksum": true,
+   "src_urls": [
+     { "site_label": "local", "url": "/home/scitech/shared-data/wf-3/nums7.txt", "priority": 10 }
+   ],
+   "dest_urls": [
+     { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-scratch/LOCAL/scitech/pegasus/workflow3/run0003/./nums7.txt" }
+   ] }
+]

@@ -1,0 +1,27 @@
+{
+  "root_workflow_uuid": "8da9dd6b-1c65-4d0e-b194-ff5db126957e",
+  "workflow_uuid": "8da9dd6b-1c65-4d0e-b194-ff5db126957e",
+  "wf_metadata": {},
+  "graph": {
+    "jobs": {
+      "stage_out_local_local_2_0": {},
+      "stage_out_local_local_1_0": {},
+      "clean_up_local_level_3_0": {},
+      "stage_out_local_local_0_0": {},
+      "create_dir_workflow3_0_local": {},
+      "clean_up_local_level_4_0": {},
+      "clean_up_local_level_5_0": {},
+      "clean_up_local_level_6_0": {},
+      "seperate_ID0000001": {},
+      "stage_in_local_local_0_0": {},
+      "stage_in_local_local_1_0": {},
+      "register_local_2_0": {},
+      "register_local_1_0": {},
+      "tar_ID0000004": {},
+      "register_local_0_0": {},
+      "count_ID0000003": {},
+      "cleanup_workflow3_0_local": {},
+      "count_ID0000002": {}
+    }
+  }
+}

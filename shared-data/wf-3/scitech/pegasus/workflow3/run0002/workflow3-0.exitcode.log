@@ -1,0 +1,4 @@
+{"name": ".//00/00/create_dir_workflow3_0_local.out", "timestamp": "2020-07-08T16:22:22.945333", "exitcode": 0, "app_exitcode": 0, "retry": 0, "std_out": "", "std_err": ""}
+{"name": ".//00/00/stage_in_local_local_1_0.out", "timestamp": "2020-07-08T16:22:42.360910", "exitcode": 0, "app_exitcode": 0, "retry": 0, "std_out": "", "std_err": ""}
+{"name": ".//00/00/stage_in_local_local_0_0.out", "timestamp": "2020-07-08T16:30:02.975311", "exitcode": 1, "app_exitcode": 256, "retry": 0, "std_out": "", "std_err": "task exited with raw status 256\n"}
+{"name": ".//00/00/stage_in_local_local_0_0.out", "timestamp": "2020-07-08T16:37:37.611536", "exitcode": 1, "app_exitcode": 256, "retry": 1, "std_out": "", "std_err": "task exited with raw status 256\n"}

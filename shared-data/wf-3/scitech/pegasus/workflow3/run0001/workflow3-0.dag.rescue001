@@ -1,0 +1,30 @@
+# Rescue DAG file, created after running
+#   the workflow3-0.dag DAG file
+# Created 7/8/2020 23:21:38 UTC
+# Rescue DAG version: 2.0.1 (partial)
+#
+# Total number of Nodes: 18
+# Nodes premarked DONE: 2
+# Nodes that failed: 0
+#   <ENDLIST>
+
+DONE create_dir_workflow3_0_local
+RETRY create_dir_workflow3_0_local 1
+RETRY stage_in_local_local_0_0 1
+DONE stage_in_local_local_1_0
+RETRY stage_in_local_local_1_0 1
+RETRY seperate_ID0000001 1
+RETRY count_ID0000003 1
+RETRY clean_up_local_level_3_0 1
+RETRY count_ID0000002 1
+RETRY stage_out_local_local_0_0 1
+RETRY tar_ID0000004 1
+RETRY stage_out_local_local_1_0 1
+RETRY register_local_0_0 1
+RETRY clean_up_local_level_4_0 1
+RETRY stage_out_local_local_2_0 1
+RETRY register_local_1_0 1
+RETRY clean_up_local_level_5_0 1
+RETRY register_local_2_0 1
+RETRY clean_up_local_level_6_0 1
+RETRY cleanup_workflow3_0_local 1

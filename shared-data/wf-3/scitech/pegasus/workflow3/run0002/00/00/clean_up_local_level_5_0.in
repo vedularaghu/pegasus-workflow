@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "type": "remove",
+    "target": { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-scratch/LOCAL/scitech/pegasus/workflow3/run0002/./odd_count.txt", "recursive": "False" } }
+  ,
+  {
+    "id": 2,
+    "type": "remove",
+    "target": { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-scratch/LOCAL/scitech/pegasus/workflow3/run0002/./even_count.txt", "recursive": "False" } }
+]

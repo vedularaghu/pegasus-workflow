@@ -1,0 +1,18 @@
+1594251810 INTERNAL *** MONITORD_STARTED ***
+1594251807 INTERNAL *** DAGMAN_STARTED 17.0 ***
+1594251811 create_dir_workflow3_0_local SUBMIT 18.0 local - 1
+1594251812 create_dir_workflow3_0_local EXECUTE 18.0 local - 1
+1594251815 create_dir_workflow3_0_local JOB_TERMINATED 18.0 local - 1
+1594251816 create_dir_workflow3_0_local JOB_SUCCESS 0 local - 1
+1594251816 create_dir_workflow3_0_local POST_SCRIPT_STARTED 18.0 local - 1
+1594251817 create_dir_workflow3_0_local POST_SCRIPT_TERMINATED 18.0 local - 1
+1594251821 create_dir_workflow3_0_local POST_SCRIPT_SUCCESS 0 local - 1
+1594251826 stage_in_local_local_0_0 SUBMIT 19.0 local - 2
+1594251826 stage_in_local_local_1_0 SUBMIT 20.0 local - 3
+1594251830 stage_in_local_local_0_0 EXECUTE 19.0 local - 2
+1594251830 stage_in_local_local_1_0 EXECUTE 20.0 local - 3
+1594251832 stage_in_local_local_1_0 JOB_TERMINATED 20.0 local - 3
+1594251836 stage_in_local_local_1_0 JOB_SUCCESS 0 local - 3
+1594251836 stage_in_local_local_1_0 POST_SCRIPT_STARTED 20.0 local - 3
+1594251836 stage_in_local_local_1_0 POST_SCRIPT_TERMINATED 20.0 local - 3
+1594251841 stage_in_local_local_1_0 POST_SCRIPT_SUCCESS 0 local - 3

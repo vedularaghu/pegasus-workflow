@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "type": "remove",
+    "target": { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-scratch/LOCAL/scitech/pegasus/workflow3/run0003/./nums4.txt", "recursive": "False" } }
+  ,
+  {
+    "id": 2,
+    "type": "remove",
+    "target": { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-scratch/LOCAL/scitech/pegasus/workflow3/run0003/./nums9.txt", "recursive": "False" } }
+  ,
+  {
+    "id": 3,
+    "type": "remove",
+    "target": { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-scratch/LOCAL/scitech/pegasus/workflow3/run0003/./nums2.txt", "recursive": "False" } }
+  ,
+  {
+    "id": 4,
+    "type": "remove",
+    "target": { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-scratch/LOCAL/scitech/pegasus/workflow3/run0003/./nums8.txt", "recursive": "False" } }
+  ,
+  {
+    "id": 5,
+    "type": "remove",
+    "target": { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-scratch/LOCAL/scitech/pegasus/workflow3/run0003/./nums6.txt", "recursive": "False" } }
+  ,
+  {
+    "id": 6,
+    "type": "remove",
+    "target": { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-scratch/LOCAL/scitech/pegasus/workflow3/run0003/./nums3.txt", "recursive": "False" } }
+  ,
+  {
+    "id": 7,
+    "type": "remove",
+    "target": { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-scratch/LOCAL/scitech/pegasus/workflow3/run0003/./nums10.txt", "recursive": "False" } }
+  ,
+  {
+    "id": 8,
+    "type": "remove",
+    "target": { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-scratch/LOCAL/scitech/pegasus/workflow3/run0003/./nums1.txt", "recursive": "False" } }
+  ,
+  {
+    "id": 9,
+    "type": "remove",
+    "target": { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-scratch/LOCAL/scitech/pegasus/workflow3/run0003/./seperate", "recursive": "False" } }
+  ,
+  {
+    "id": 10,
+    "type": "remove",
+    "target": { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-scratch/LOCAL/scitech/pegasus/workflow3/run0003/./nums5.txt", "recursive": "False" } }
+  ,
+  {
+    "id": 11,
+    "type": "remove",
+    "target": { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-3/wf-scratch/LOCAL/scitech/pegasus/workflow3/run0003/./nums7.txt", "recursive": "False" } }
+]

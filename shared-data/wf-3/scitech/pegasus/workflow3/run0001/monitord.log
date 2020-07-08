@@ -17,3 +17,14 @@ Your database is compatible with Pegasus version: 5.0.0dev
 2020-07-08 16:15:04,680:INFO:pegasus-monitord(949): DAGMan runs at pid 2110
 2020-07-08 16:15:04,683:INFO:pegasus-monitord(955): using dag workflow3-0.dag
 2020-07-08 16:15:04,684:INFO:Pegasus.monitoring.workflow(811): DAGMan starting with condor id 8.0
+2020-07-08 16:21:48,847:WARNING:pegasus-monitord(1029): DAGMan was aborted for workflow running in directory /home/scitech/shared-data/wf-3/scitech/pegasus/workflow3/run0001
+2020-07-08 16:21:48,853:INFO:pegasus-monitord(927): DAGMan workflow3-0.dag finished with exit code 2
+2020-07-08 16:21:49,908:INFO:pegasus-monitord(1427): workflow /home/scitech/shared-data/wf-3/scitech/pegasus/workflow3/run0001/workflow3-0.dag.dagman.out ended
+2020-07-08 16:21:49,919:INFO:Pegasus.monitoring.workflow(1377): recovery file deleted: /home/scitech/shared-data/wf-3/scitech/pegasus/workflow3/run0001/monitord.recover
+2020-07-08 16:21:49,922:INFO:pegasus-monitord(1665): finishing workflow: /home/scitech/shared-data/wf-3/scitech/pegasus/workflow3/run0001/workflow3-0.dag.dagman.out
+2020-07-08 16:21:49,923:INFO:pegasus-monitord(1719): finishing notifications...
+2020-07-08 16:21:49,924:INFO:pegasus-monitord(1727): monitord process 2111 exiting with 0
+2020-07-08 16:21:49,926:INFO:pegasus-monitord(197): DB flushing beginning
+2020-07-08 16:21:49,927:INFO:Pegasus.db.workflow_loader.WorkflowLoader(1244): Executing final flush
+2020-07-08 16:21:49,932:INFO:Pegasus.db.dashboard_loader.DashboardLoader(397): Executing final flush
+2020-07-08 16:21:49,933:INFO:pegasus-monitord(213): DB flushing ended

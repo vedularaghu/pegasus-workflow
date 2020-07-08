@@ -1,0 +1,14 @@
+[
+  {
+    "_id": "count",
+    "_type": "file",
+    "_attributes": {
+      "user": "scitech",
+      "size": "124",
+      "ctime": "2020-07-08T01:12:26",
+      "checksum.type": "sha256",
+      "checksum.value": "e2c73793434bcce88c643efdf4a645880195a6fb1acf9c979d3a241757791655",
+      "checksum.timing": "0.024"
+    }
+  }
+]

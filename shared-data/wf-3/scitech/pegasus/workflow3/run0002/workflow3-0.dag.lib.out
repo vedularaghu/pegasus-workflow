@@ -1,0 +1,7 @@
+Pegasus DAGMAN is /home/scitech/pegasus/dist/pegasus-5.0.0dev/lib64/python3.6/site-packages/Pegasus/cli/pegasus-dagman.py
+2020-07-08 16:22:13,496:INFO:pegasus-dagman(135): DAGMAN_COPY_TO_SPOOL is set to b'false\n'
+2020-07-08 16:22:13,498:INFO:pegasus-dagman(91): Launched Dagman with Pid 5273
+2020-07-08 16:22:13,504:INFO:pegasus-dagman(118): Launched Monitord with Pid 5274
+Executing condor dagman ... 
+2020-07-08 16:37:58,313:INFO:pegasus-dagman(255): Dagman exited with code 1
+2020-07-08 16:37:58,318:INFO:pegasus-dagman(256): Monitord exited with code 0

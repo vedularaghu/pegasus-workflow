@@ -1,0 +1,11 @@
+# file-based replica catalog: 2020-07-08T23:43:21.748+00:00
+nums4.txt /home/scitech/shared-data/wf-3/nums4.txt priority="10" site="local"
+nums9.txt /home/scitech/shared-data/wf-3/nums9.txt priority="10" site="local"
+nums3.txt /home/scitech/shared-data/wf-3/nums3.txt priority="10" site="local"
+nums10.txt /home/scitech/shared-data/wf-3/nums10.txt priority="10" site="local"
+nums1.txt /home/scitech/shared-data/wf-3/nums1.txt priority="10" site="local"
+nums2.txt /home/scitech/shared-data/wf-3/nums2.txt priority="10" site="local"
+nums8.txt /home/scitech/shared-data/wf-3/nums8.txt priority="10" site="local"
+nums5.txt /home/scitech/shared-data/wf-3/nums5.txt priority="10" site="local"
+nums6.txt /home/scitech/shared-data/wf-3/nums6.txt priority="10" site="local"
+nums7.txt /home/scitech/shared-data/wf-3/nums7.txt priority="10" site="local"

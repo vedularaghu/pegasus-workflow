@@ -36,7 +36,7 @@ transformationCatalog:
   transformations:
   - name: seperate
     sites:
-    - {name: local, pfn: /home/scitech/shared-data/wf-3/increment.py, type: stageable,
+    - {name: local, pfn: /home/scitech/shared-data/wf-3/seperate.py, type: stageable,
       arch: x86_64, os.type: linux}
   - name: count
     sites:
@@ -51,18 +51,18 @@ jobs:
   id: ID0000001
   arguments: []
   uses:
-  - {lfn: odd_nums.txt, type: output, stageOut: true, registerReplica: true}
-  - {lfn: nums5.txt, type: input}
-  - {lfn: nums8.txt, type: input}
-  - {lfn: nums2.txt, type: input}
-  - {lfn: nums9.txt, type: input}
-  - {lfn: nums1.txt, type: input}
-  - {lfn: even_nums.txt, type: output, stageOut: true, registerReplica: true}
   - {lfn: nums6.txt, type: input}
-  - {lfn: nums3.txt, type: input}
-  - {lfn: nums10.txt, type: input}
   - {lfn: nums4.txt, type: input}
   - {lfn: nums7.txt, type: input}
+  - {lfn: nums2.txt, type: input}
+  - {lfn: nums1.txt, type: input}
+  - {lfn: odd_nums.txt, type: output, stageOut: true, registerReplica: true}
+  - {lfn: even_nums.txt, type: output, stageOut: true, registerReplica: true}
+  - {lfn: nums3.txt, type: input}
+  - {lfn: nums5.txt, type: input}
+  - {lfn: nums8.txt, type: input}
+  - {lfn: nums10.txt, type: input}
+  - {lfn: nums9.txt, type: input}
 - type: job
   name: count
   id: ID0000002
@@ -75,20 +75,20 @@ jobs:
   id: ID0000003
   arguments: [even_nums.txt, even_count.txt]
   uses:
-  - {lfn: even_count.txt, type: output, stageOut: true, registerReplica: true}
   - {lfn: even_nums.txt, type: input}
+  - {lfn: even_count.txt, type: output, stageOut: true, registerReplica: true}
 - type: job
   name: tar
   id: ID0000004
   stdout: result.tar.gz
   arguments: [odd_count.txt, even_count.txt]
   uses:
-  - {lfn: even_count.txt, type: input}
-  - {lfn: result.tar.gz, type: output, stageOut: true, registerReplica: true}
   - {lfn: odd_count.txt, type: input}
+  - {lfn: result.tar.gz, type: output, stageOut: true, registerReplica: true}
+  - {lfn: even_count.txt, type: input}
 jobDependencies:
 - id: ID0000001
-  children: [ID0000002, ID0000003]
+  children: [ID0000003, ID0000002]
 - id: ID0000002
   children: [ID0000004]
 - id: ID0000003

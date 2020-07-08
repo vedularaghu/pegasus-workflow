@@ -1,0 +1,29 @@
+2020-07-08 16:22:14,194:INFO:pegasus-monitord(58): pegasus-monitord starting - pid 5274 
+2020-07-08 16:22:14,212:INFO:pegasus-monitord(455): Final Command line options are: ['-N', 'workflow3-0.dag.dagman.out']
+2020-07-08 16:22:14,230:INFO:Pegasus.monitoring.event_output(629): Connecting workflow event sink to sqlite:////home/scitech/shared-data/wf-3/scitech/pegasus/workflow3/run0002/workflow3-0.stampede.db
+Created Pegasus database in: sqlite:////home/scitech/shared-data/wf-3/scitech/pegasus/workflow3/run0002/workflow3-0.stampede.db
+Your database is compatible with Pegasus version: 5.0.0dev
+2020-07-08 16:22:15,092:INFO:Pegasus.monitoring.event_output(703): output type=DB namespace=stampede. name=sqlite:////home/scitech/shared-data/wf-3/scitech/pegasus/workflow3/run0002/workflow3-0.stampede.db
+2020-07-08 16:22:15,093:INFO:Pegasus.monitoring.event_output(629): Connecting workflow event sink to sqlite:////home/scitech/.pegasus/workflow.db
+Your database is compatible with Pegasus version: 5.0.0dev
+2020-07-08 16:22:15,539:INFO:Pegasus.monitoring.event_output(703): output type=DB namespace=dashboard. name=sqlite:////home/scitech/.pegasus/workflow.db
+2020-07-08 16:22:15,540:INFO:pegasus-monitord(1247): monitord started in fast start mode
+2020-07-08 16:22:15,558:INFO:Pegasus.monitoring.workflow(461): cannot open state file /home/scitech/shared-data/wf-3/scitech/pegasus/workflow3/run0002/monitord.info, continuing without state...
+2020-07-08 16:22:15,558:INFO:Pegasus.monitoring.workflow(1148): creating new file /home/scitech/shared-data/wf-3/scitech/pegasus/workflow3/run0002/jobstate.log
+2020-07-08 16:22:15,558:INFO:Pegasus.monitoring.workflow(1158): Appending to existing jobstate.log replay_mode 0 previous_processed_line 0
+2020-07-08 16:22:15,560:INFO:Pegasus.monitoring.notifications(474): loading notifications from /home/scitech/shared-data/wf-3/scitech/pegasus/workflow3/run0002/workflow3-0.notify
+2020-07-08 16:22:15,789:INFO:Pegasus.monitoring.workflow(205): Parsing DAG file /home/scitech/shared-data/wf-3/scitech/pegasus/workflow3/run0002/workflow3-0.dag
+2020-07-08 16:22:15,794:INFO:pegasus-monitord(974): Using DAGMan version 8.8.9 80809
+2020-07-08 16:22:15,795:INFO:pegasus-monitord(949): DAGMan runs at pid 5273
+2020-07-08 16:22:15,798:INFO:pegasus-monitord(955): using dag workflow3-0.dag
+2020-07-08 16:22:15,798:INFO:Pegasus.monitoring.workflow(811): DAGMan starting with condor id 12.0
+2020-07-08 16:37:43,519:INFO:pegasus-monitord(927): DAGMan workflow3-0.dag finished with exit code 1
+2020-07-08 16:37:44,536:INFO:pegasus-monitord(1427): workflow /home/scitech/shared-data/wf-3/scitech/pegasus/workflow3/run0002/workflow3-0.dag.dagman.out ended
+2020-07-08 16:37:44,542:INFO:Pegasus.monitoring.workflow(1377): recovery file deleted: /home/scitech/shared-data/wf-3/scitech/pegasus/workflow3/run0002/monitord.recover
+2020-07-08 16:37:44,545:INFO:pegasus-monitord(1665): finishing workflow: /home/scitech/shared-data/wf-3/scitech/pegasus/workflow3/run0002/workflow3-0.dag.dagman.out
+2020-07-08 16:37:44,546:INFO:pegasus-monitord(1719): finishing notifications...
+2020-07-08 16:37:44,546:INFO:pegasus-monitord(1727): monitord process 5274 exiting with 0
+2020-07-08 16:37:44,549:INFO:pegasus-monitord(197): DB flushing beginning
+2020-07-08 16:37:44,550:INFO:Pegasus.db.workflow_loader.WorkflowLoader(1244): Executing final flush
+2020-07-08 16:37:44,638:INFO:Pegasus.db.dashboard_loader.DashboardLoader(397): Executing final flush
+2020-07-08 16:37:44,639:INFO:pegasus-monitord(213): DB flushing ended
