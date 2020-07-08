@@ -1,0 +1,16 @@
+pegasus: '5.0'
+name: print
+transformationCatalog:
+  transformations:
+  - name: echo
+    sites:
+    - {name: condorpool, pfn: /bin/echo, type: installed, arch: x86_64, os.type: linux}
+jobs:
+- type: job
+  name: echo
+  id: ID0000001
+  stdout: stdout.txt
+  arguments: [hello world]
+  uses:
+  - {lfn: stdout.txt, type: output, stageOut: true, registerReplica: true}
+jobDependencies: []

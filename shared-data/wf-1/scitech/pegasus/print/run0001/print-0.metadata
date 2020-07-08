@@ -1,0 +1,15 @@
+{
+  "root_workflow_uuid": "efb67e2c-71bd-4320-9c81-a0c8d77908bb",
+  "workflow_uuid": "efb67e2c-71bd-4320-9c81-a0c8d77908bb",
+  "wf_metadata": {},
+  "graph": {
+    "jobs": {
+      "create_dir_print_0_local": {},
+      "cleanup_print_0_local": {},
+      "register_local_0_0": {},
+      "clean_up_local_level_3_0": {},
+      "stage_out_local_local_0_0": {},
+      "echo_ID0000001": {}
+    }
+  }
+}

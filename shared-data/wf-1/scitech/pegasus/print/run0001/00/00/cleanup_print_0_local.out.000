@@ -1,0 +1,177 @@
+- invocation: True
+  version: 3.0
+  start: 2020-07-08T16:11:04.687-07:00
+  duration: 2.244
+  transformation: "pegasus::cleanup"
+  derivation: "null"
+  resource: "local"
+  wf-label: "print"
+  wf-stamp: "2020-07-08T23:09:35+00:00"
+  interface: eth0
+  hostaddr: 172.17.0.2
+  hostname: 8fb066efc1d5
+  pid: 1593
+  uid: 550
+  user: scitech
+  gid: 808
+  group: scitech-group
+  umask: 0o0022
+  mainjob:
+    start: 2020-07-08T16:11:04.693-07:00
+    duration: 2.237
+    pid: 1594
+    usage:
+      utime: 0.150
+      stime: 0.046
+      maxrss: 17624
+      minflt: 11093
+      majflt: 0
+      nswap: 0
+      inblock: 8
+      outblock: 16
+      msgsnd: 0
+      msgrcv: 0
+      nsignals: 0
+      nvcsw: 174
+      nivcsw: 100
+    status:
+      raw: 0
+      regular_exitcode: 0
+    executable:
+      file_name: /home/scitech/pegasus/dist/pegasus-5.0.0dev/bin/pegasus-transfer
+      mode: 0o100755
+      size: 2111
+      inode: 529649
+      nlink: 1
+      blksize: 4096
+      blocks: 8
+      mtime: 2020-07-08T16:07:32-07:00
+      atime: 2020-07-08T16:07:32-07:00
+      ctime: 2020-07-08T16:07:43-07:00
+      uid: 550
+      user: scitech
+      gid: 808
+      group: scitech-group
+    argument_vector:
+    procs:
+  jobids:
+    condor: 7.0
+  cwd: /home/scitech/shared-data/wf-1/scitech/pegasus/print/run0001
+  usage:
+    utime: 0.002
+    stime: 0.006
+    maxrss: 5452
+    minflt: 292
+    majflt: 0
+    nswap: 0
+    inblock: 0
+    outblock: 0
+    msgsnd: 0
+    msgrcv: 0
+    nsignals: 0
+    nvcsw: 20
+    nivcsw: 10
+  machine:
+    page-size: 4096
+    uname_system: linux
+    uname_nodename: 8fb066efc1d5
+    uname_release: 4.19.76-linuxkit
+    uname_machine: x86_64
+    ram_total: 2038904
+    ram_free: 388092
+    ram_shared: 384
+    ram_buffer: 81496
+    swap_total: 1048572
+    swap_free: 1029616
+    cpu_count: 4
+    cpu_speed: 1400
+    cpu_vendor: GenuineIntel
+    cpu_model: Intel(R) Core(TM) i5-8257U CPU @ 1.40GHz
+    load_min1: 0.60
+    load_min5: 0.72
+    load_min15: 0.40
+    procs_total: 19
+    procs_running: 1
+    procs_sleeping: 18
+    procs_vmsize: 4327936
+    procs_rss: 471508
+    task_total: 63
+    task_running: 1
+    task_sleeping: 62
+  files:
+    stdin:
+      descriptor_number: 0
+      mode: 0o100644
+      size: 202
+      inode: 14271567
+      nlink: 1
+      blksize: 4096
+      blocks: 8
+      mtime: 2020-07-08T16:09:37-07:00
+      atime: 2020-07-08T16:09:37-07:00
+      ctime: 2020-07-08T16:09:37-07:00
+      uid: 550
+      user: scitech
+      gid: 808
+      group: scitech-group
+    stdout:
+      temporary_name: /var/lib/condor/spool/local_univ_execute/dir_1592/ks.out.btRYr0
+      descriptor: 3
+      mode: 0o100600
+      size: 819
+      inode: 3016324
+      nlink: 1
+      blksize: 4096
+      blocks: 8
+      mtime: 2020-07-08T16:11:06-07:00
+      atime: 2020-07-08T16:11:04-07:00
+      ctime: 2020-07-08T16:11:06-07:00
+      uid: 550
+      user: scitech
+      gid: 808
+      group: scitech-group
+      data_truncated: false
+      data: |
+        2020-07-08 16:11:04,824    INFO:  Reading URL pairs from stdin
+        2020-07-08 16:11:04,826    INFO:  1 transfers loaded
+        2020-07-08 16:11:04,826    INFO:  PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin
+        2020-07-08 16:11:04,826    INFO:  LD_LIBRARY_PATH=
+        2020-07-08 16:11:04,887    INFO:  --------------------------------------------------------------------------------
+        2020-07-08 16:11:04,888    INFO:  Starting transfers - attempt 1
+        2020-07-08 16:11:06,892    INFO:  /bin/rm -f -r  '//home/scitech/shared-data/wf-1/wf-scratch/LOCAL/scitech/pegasus/print/run0001' 
+        2020-07-08 16:11:06,919    INFO:  --------------------------------------------------------------------------------
+        2020-07-08 16:11:06,920    INFO:  Stats: no local files in the transfer set
+        2020-07-08 16:11:06,920    INFO:  All transfers completed successfully.
+        
+    stderr:
+      temporary_name: /var/lib/condor/spool/local_univ_execute/dir_1592/ks.err.s17x01
+      descriptor: 4
+      mode: 0o100600
+      size: 0
+      inode: 3016325
+      nlink: 1
+      blksize: 4096
+      blocks: 0
+      mtime: 2020-07-08T16:11:04-07:00
+      atime: 2020-07-08T16:11:04-07:00
+      ctime: 2020-07-08T16:11:04-07:00
+      uid: 550
+      user: scitech
+      gid: 808
+      group: scitech-group
+    metadata:
+      temporary_name: /var/lib/condor/spool/local_univ_execute/dir_1592/ks.meta.9VN9y3
+      descriptor: 5
+      mode: 0o100600
+      size: 0
+      inode: 3016326
+      nlink: 1
+      blksize: 4096
+      blocks: 0
+      mtime: 2020-07-08T16:11:04-07:00
+      atime: 2020-07-08T16:11:04-07:00
+      ctime: 2020-07-08T16:11:04-07:00
+      uid: 550
+      user: scitech
+      gid: 808
+      group: scitech-group

@@ -1,0 +1,14 @@
+[
+  {
+    "_id": "stdout.txt",
+    "_type": "file",
+    "_attributes": {
+      "user": "scitech",
+      "size": "12",
+      "ctime": "2020-07-08T16:10:11-07:00",
+      "checksum.type": "sha256",
+      "checksum.value": "a948904f2f0f479b8f8197694b30184b0d2ed1c1cd2a1ec0fb85d299a192a447",
+      "checksum.timing": "0.0"
+    }
+  }
+]

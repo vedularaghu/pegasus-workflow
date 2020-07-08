@@ -1,0 +1,48 @@
+000 (009.000.000) 07/08 16:15:06 Job submitted from host: <127.0.0.1:9618?addrs=127.0.0.1-9618&noUDP&sock=262_9a4e_4>
+    DAG Node: create_dir_workflow3_0_local
+    pool:local
+...
+001 (009.000.000) 07/08 16:15:07 Job executing on host: <127.0.0.1:9618?addrs=127.0.0.1-9618&noUDP&sock=271_b1a4_9>
+...
+005 (009.000.000) 07/08 16:15:09 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+...
+016 (009.000.000) 07/08 16:15:11 POST Script terminated.
+	(1) Normal termination (return value 0)
+    DAG Node: create_dir_workflow3_0_local
+...
+000 (010.000.000) 07/08 16:15:21 Job submitted from host: <127.0.0.1:9618?addrs=127.0.0.1-9618&noUDP&sock=262_9a4e_4>
+    DAG Node: stage_in_local_local_0_0
+    pool:local
+...
+000 (011.000.000) 07/08 16:15:21 Job submitted from host: <127.0.0.1:9618?addrs=127.0.0.1-9618&noUDP&sock=262_9a4e_4>
+    DAG Node: stage_in_local_local_1_0
+    pool:local
+...
+001 (010.000.000) 07/08 16:15:24 Job executing on host: <127.0.0.1:9618?addrs=127.0.0.1-9618&noUDP&sock=271_b1a4_10>
+...
+001 (011.000.000) 07/08 16:15:24 Job executing on host: <127.0.0.1:9618?addrs=127.0.0.1-9618&noUDP&sock=271_b1a4_11>
+...
+005 (011.000.000) 07/08 16:15:27 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+...
+016 (011.000.000) 07/08 16:15:32 POST Script terminated.
+	(1) Normal termination (return value 0)
+    DAG Node: stage_in_local_local_1_0
+...

@@ -1,0 +1,52 @@
+digraph E {
+size="8.0,10.0"
+ratio=fill
+node [shape=ellipse]
+edge [arrowhead=normal, arrowsize=1.0]
+	"stage_out_local_local_2_0" [color=goldenrod,style=filled,label="stage_out_local_local_2_0"]
+	"stage_out_local_local_1_0" [color=goldenrod,style=filled,label="stage_out_local_local_1_0"]
+	"clean_up_local_level_3_0" [color=deepskyblue,style=filled,label="clean_up_local_level_3_0"]
+	"stage_out_local_local_0_0" [color=goldenrod,style=filled,label="stage_out_local_local_0_0"]
+	"create_dir_workflow3_0_local" [color=darkturquoise,style=filled,label="create_dir_workflow3_0_local"]
+	"clean_up_local_level_4_0" [color=deepskyblue,style=filled,label="clean_up_local_level_4_0"]
+	"clean_up_local_level_5_0" [color=deepskyblue,style=filled,label="clean_up_local_level_5_0"]
+	"clean_up_local_level_6_0" [color=deepskyblue,style=filled,label="clean_up_local_level_6_0"]
+	"seperate_ID0000001" [color=blueviolet,style=filled,label="seperate_ID0000001"]
+	"stage_in_local_local_0_0" [color=gold,style=filled,label="stage_in_local_local_0_0"]
+	"stage_in_local_local_1_0" [color=gold,style=filled,label="stage_in_local_local_1_0"]
+	"register_local_2_0" [color=orange,style=filled,label="register_local_2_0"]
+	"register_local_1_0" [color=orange,style=filled,label="register_local_1_0"]
+	"tar_ID0000004" [color=blueviolet,style=filled,label="tar_ID0000004"]
+	"register_local_0_0" [color=orange,style=filled,label="register_local_0_0"]
+	"count_ID0000003" [color=blueviolet,style=filled,label="count_ID0000003"]
+	"cleanup_workflow3_0_local" [color=deepskyblue,style=filled,label="cleanup_workflow3_0_local"]
+	"count_ID0000002" [color=blueviolet,style=filled,label="count_ID0000002"]
+
+	"stage_out_local_local_2_0" -> "register_local_2_0"
+	"stage_out_local_local_2_0" -> "clean_up_local_level_6_0"
+	"stage_out_local_local_1_0" -> "register_local_1_0"
+	"stage_out_local_local_1_0" -> "clean_up_local_level_5_0"
+	"clean_up_local_level_3_0" -> "cleanup_workflow3_0_local"
+	"stage_out_local_local_0_0" -> "register_local_0_0"
+	"stage_out_local_local_0_0" -> "clean_up_local_level_4_0"
+	"create_dir_workflow3_0_local" -> "stage_in_local_local_0_0"
+	"create_dir_workflow3_0_local" -> "stage_in_local_local_1_0"
+	"clean_up_local_level_4_0" -> "cleanup_workflow3_0_local"
+	"clean_up_local_level_5_0" -> "cleanup_workflow3_0_local"
+	"clean_up_local_level_6_0" -> "cleanup_workflow3_0_local"
+	"seperate_ID0000001" -> "count_ID0000003"
+	"seperate_ID0000001" -> "clean_up_local_level_3_0"
+	"seperate_ID0000001" -> "count_ID0000002"
+	"seperate_ID0000001" -> "stage_out_local_local_0_0"
+	"stage_in_local_local_0_0" -> "seperate_ID0000001"
+	"stage_in_local_local_1_0" -> "count_ID0000003"
+	"stage_in_local_local_1_0" -> "count_ID0000002"
+	"tar_ID0000004" -> "stage_out_local_local_2_0"
+	"tar_ID0000004" -> "clean_up_local_level_5_0"
+	"count_ID0000003" -> "tar_ID0000004"
+	"count_ID0000003" -> "stage_out_local_local_1_0"
+	"count_ID0000003" -> "clean_up_local_level_4_0"
+	"count_ID0000002" -> "tar_ID0000004"
+	"count_ID0000002" -> "stage_out_local_local_1_0"
+	"count_ID0000002" -> "clean_up_local_level_4_0"
+}

@@ -1,0 +1,39 @@
+######################################################################
+# PEGASUS WMS GENERATED SUBMIT FILE
+# DAG : workflow3, Index = 0, Count = null
+# SUBMIT FILE NAME : stage_out_local_local_2_0.sub
+######################################################################
+stream_error  = false
+stream_output = false
+environment = "LANG=en_US.UTF-8 PEGASUS_HOME=/home/scitech/pegasus/dist/pegasus-5.0.0dev CONDOR_JOBID=$(cluster).$(process) PEGASUS_WF_UUID=1639bacb-8d09-4635-9399-d343cf7a0db7 PEGASUS_WF_LABEL=workflow3 PEGASUS_DAG_JOB_ID=stage_out_local_local_2_0 PEGASUS_SITE=local _PEGASUS_TRANSFER_INPUT_FILES=/home/scitech/shared-data/wf-3/scitech/pegasus/workflow3/run0001/00/00/tar_ID0000004.meta, PEGASUS_BIN_DIR=/home/scitech/pegasus/dist/pegasus-5.0.0dev/bin _PEGASUS_CONNECT_STDIN=true"
+arguments = "/home/scitech/pegasus/dist/pegasus-5.0.0dev/bin/pegasus-kickstart  -n pegasus::transfer -N null -i - -R local  -L workflow3 -T 2020-07-08T23:14:54+00:00 /home/scitech/pegasus/dist/pegasus-5.0.0dev/bin/pegasus-transfer  --threads 2 "
+error = /home/scitech/shared-data/wf-3/scitech/pegasus/workflow3/run0001//00/00/stage_out_local_local_2_0.err
+executable = /home/scitech/pegasus/dist/pegasus-5.0.0dev/share/pegasus/sh/pegasus-lite-local.sh
+input = /home/scitech/shared-data/wf-3/scitech/pegasus/workflow3/run0001//00/00/stage_out_local_local_2_0.in
+log = /home/scitech/shared-data/wf-3/scitech/pegasus/workflow3/run0001/workflow3-0.log
+notification = NEVER
+output = /home/scitech/shared-data/wf-3/scitech/pegasus/workflow3/run0001//00/00/stage_out_local_local_2_0.out
+periodic_release = False
+periodic_remove = (JobStatus == 5) && ((CurrentTime - EnteredCurrentStatus) > 1800)
+priority = 900
+submit_event_user_notes = pool:local
+transfer_executable = false
+universe = local
++pegasus_generator = "Pegasus"
++pegasus_root_wf_uuid = "1639bacb-8d09-4635-9399-d343cf7a0db7"
++pegasus_wf_uuid = "1639bacb-8d09-4635-9399-d343cf7a0db7"
++pegasus_version = "5.0.0dev"
++pegasus_wf_name = "workflow3-0"
++pegasus_wf_time = "20200708T231455+0000"
++pegasus_wf_xformation = "pegasus::transfer"
++pegasus_wf_dax_job_id = "null"
++pegasus_wf_dag_job_id = "stage_out_local_local_2_0"
++pegasus_job_class = 3
++pegasus_site = "local"
++pegasus_job_runtime = 0
++pegasus_cores = 1
++pegasus_cluster_size = 1
+queue
+######################################################################
+# END OF SUBMIT FILE
+######################################################################

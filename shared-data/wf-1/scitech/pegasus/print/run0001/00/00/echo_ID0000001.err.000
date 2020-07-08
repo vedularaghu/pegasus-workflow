@@ -1,0 +1,13 @@
+2020-07-08 16:10:10: PegasusLite: version 5.0.0dev
+2020-07-08 16:10:10: Executing on host 8fb066efc1d5 IP=172.18.0.1
+
+########################[Pegasus Lite] Setting up workdir ########################
+2020-07-08 16:10:10: Not creating a new work directory as it is already set to /var/lib/condor/execute/dir_904
+
+##############[Pegasus Lite] Figuring out the worker package to use ##############
+2020-07-08 16:10:10: The job contained a Pegasus worker package
+
+##################### Checking file integrity for input files #####################
+
+######################[Pegasus Lite] Executing the user task ######################
+PegasusLite: exitcode 0

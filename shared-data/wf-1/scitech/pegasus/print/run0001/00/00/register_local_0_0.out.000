@@ -1,0 +1,182 @@
+- invocation: True
+  version: 3.0
+  start: 2020-07-08T16:10:48.795-07:00
+  duration: 2.503
+  transformation: "pegasus::rc-client"
+  derivation: "null"
+  resource: "local"
+  wf-label: "print"
+  wf-stamp: "2020-07-08T23:09:35+00:00"
+  interface: eth0
+  hostaddr: 172.17.0.2
+  hostname: 8fb066efc1d5
+  pid: 1356
+  uid: 550
+  user: scitech
+  gid: 808
+  group: scitech-group
+  umask: 0o0022
+  mainjob:
+    start: 2020-07-08T16:10:48.800-07:00
+    duration: 2.497
+    pid: 1358
+    usage:
+      utime: 1.882
+      stime: 0.935
+      maxrss: 84096
+      minflt: 57083
+      majflt: 0
+      nswap: 0
+      inblock: 1128
+      outblock: 1664
+      msgsnd: 0
+      msgrcv: 0
+      nsignals: 0
+      nvcsw: 2185
+      nivcsw: 924
+    status:
+      raw: 0
+      regular_exitcode: 0
+    executable:
+      file_name: /home/scitech/pegasus/dist/pegasus-5.0.0dev/bin/pegasus-rc-client
+      mode: 0o100755
+      size: 606
+      inode: 529637
+      nlink: 1
+      blksize: 4096
+      blocks: 8
+      mtime: 2020-07-08T16:05:37-07:00
+      atime: 2020-07-08T16:05:37-07:00
+      ctime: 2020-07-08T16:07:43-07:00
+      uid: 550
+      user: scitech
+      gid: 808
+      group: scitech-group
+    argument_vector:
+      - "--prefix"
+      - "pegasus.catalog.replica.output"
+      - "--conf"
+      - "/home/scitech/shared-data/wf-1/scitech/pegasus/print/run0001/pegasus.5593625254037969749.properties"
+      - "-v"
+      - "--meta"
+      - "/home/scitech/shared-data/wf-1/scitech/pegasus/print/run0001/00/00/echo_ID0000001.meta"
+      - "--insert"
+      - "/home/scitech/shared-data/wf-1/scitech/pegasus/print/run0001/00/00/register_local_0_0.in"
+    procs:
+  jobids:
+    condor: 6.0
+  cwd: /home/scitech/shared-data/wf-1/scitech/pegasus/print/run0001
+  usage:
+    utime: 0.003
+    stime: 0.004
+    maxrss: 5372
+    minflt: 298
+    majflt: 0
+    nswap: 0
+    inblock: 8
+    outblock: 0
+    msgsnd: 0
+    msgrcv: 0
+    nsignals: 0
+    nvcsw: 13
+    nivcsw: 21
+  machine:
+    page-size: 4096
+    uname_system: linux
+    uname_nodename: 8fb066efc1d5
+    uname_release: 4.19.76-linuxkit
+    uname_machine: x86_64
+    ram_total: 2038904
+    ram_free: 389688
+    ram_shared: 384
+    ram_buffer: 81372
+    swap_total: 1048572
+    swap_free: 1029616
+    cpu_count: 4
+    cpu_speed: 1400
+    cpu_vendor: GenuineIntel
+    cpu_model: Intel(R) Core(TM) i5-8257U CPU @ 1.40GHz
+    load_min1: 0.68
+    load_min5: 0.74
+    load_min15: 0.40
+    procs_total: 21
+    procs_running: 3
+    procs_sleeping: 18
+    procs_vmsize: 4421432
+    procs_rss: 484456
+    task_total: 65
+    task_running: 2
+    task_sleeping: 63
+  files:
+    stdin:
+      file_name: /dev/null
+      mode: 0o20666
+      size: 0
+      inode: 859915
+      nlink: 1
+      blksize: 4096
+      blocks: 0
+      mtime: 2020-07-08T16:09:02-07:00
+      atime: 2020-07-08T16:09:02-07:00
+      ctime: 2020-07-08T16:09:02-07:00
+      uid: 0
+      user: root
+      gid: 0
+      group: root
+    stdout:
+      temporary_name: /var/lib/condor/spool/local_univ_execute/dir_1354/ks.out.6K2bSJ
+      descriptor: 3
+      mode: 0o100600
+      size: 91
+      inode: 3016327
+      nlink: 1
+      blksize: 4096
+      blocks: 8
+      mtime: 2020-07-08T16:10:50-07:00
+      atime: 2020-07-08T16:10:48-07:00
+      ctime: 2020-07-08T16:10:50-07:00
+      uid: 550
+      user: scitech
+      gid: 808
+      group: scitech-group
+      data_truncated: false
+      data: |
+        2020.07.08 23:10:50.588 UTC:   Your database is compatible with Pegasus version: 5.0.0dev 
+        
+    stderr:
+      temporary_name: /var/lib/condor/spool/local_univ_execute/dir_1354/ks.err.Otlljn
+      descriptor: 4
+      mode: 0o100600
+      size: 76
+      inode: 3016328
+      nlink: 1
+      blksize: 4096
+      blocks: 8
+      mtime: 2020-07-08T16:10:51-07:00
+      atime: 2020-07-08T16:10:48-07:00
+      ctime: 2020-07-08T16:10:51-07:00
+      uid: 550
+      user: scitech
+      gid: 808
+      group: scitech-group
+      data_truncated: false
+      data: |
+        #Successfully worked on    : 1 lines.
+        #Worked on total number of : 1 lines.
+        
+    metadata:
+      temporary_name: /var/lib/condor/spool/local_univ_execute/dir_1354/ks.meta.ULdxK0
+      descriptor: 5
+      mode: 0o100600
+      size: 0
+      inode: 3016331
+      nlink: 1
+      blksize: 4096
+      blocks: 0
+      mtime: 2020-07-08T16:10:48-07:00
+      atime: 2020-07-08T16:10:48-07:00
+      ctime: 2020-07-08T16:10:48-07:00
+      uid: 550
+      user: scitech
+      gid: 808
+      group: scitech-group

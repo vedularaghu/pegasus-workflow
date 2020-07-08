@@ -1,0 +1,42 @@
+{
+  "client": "pegasus-plan",
+  "version": "5.0.0dev",
+  "dax_api": "xml",
+  "type": "metrics",
+  "start_time": 1.594250095045E9,
+  "end_time": 1.594250100207E9,
+  "duration": 5.162,
+  "exitcode": 0,
+  "root_wf_uuid": "1639bacb-8d09-4635-9399-d343cf7a0db7",
+  "wf_uuid": "1639bacb-8d09-4635-9399-d343cf7a0db7",
+  "data_config": "condorio",
+  "planner_args": "--output-sites local --cleanup inplace --submit --dax workflow.yml ",
+  "uses_pmc": false,
+  "wf_metrics": {
+    "compute_tasks": 4,
+    "dax_tasks": 0,
+    "dag_tasks": 0,
+    "total_tasks": 4,
+    "deleted_tasks": 0,
+    "dax_input_files": 10,
+    "dax_inter_files": 4,
+    "dax_output_files": 1,
+    "dax_total_files": 15,
+    "compute_jobs": 4,
+    "clustered_jobs": 0,
+    "si_tx_jobs": 2,
+    "so_tx_jobs": 3,
+    "inter_tx_jobs": 0,
+    "reg_jobs": 3,
+    "cleanup_jobs": 5,
+    "create_dir_jobs": 1,
+    "dax_jobs": 0,
+    "dag_jobs": 0,
+    "chmod_jobs": 0,
+    "total_jobs": 18
+  },
+  "app_metrics": {
+    "name": "workflow3"
+  }
+}
+

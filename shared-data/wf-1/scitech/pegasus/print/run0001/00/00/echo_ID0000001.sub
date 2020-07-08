@@ -1,0 +1,43 @@
+######################################################################
+# PEGASUS WMS GENERATED SUBMIT FILE
+# DAG : print, Index = 0, Count = null
+# SUBMIT FILE NAME : echo_ID0000001.sub
+######################################################################
+stream_error  = false
+stream_output = false
+environment = "LANG=en_US.UTF-8 CONDOR_JOBID=$(cluster).$(process) PEGASUS_WF_UUID=efb67e2c-71bd-4320-9c81-a0c8d77908bb PEGASUS_WF_LABEL=print PEGASUS_DAG_JOB_ID=echo_ID0000001 PEGASUS_SITE=condorpool"
++WantIOProxy = True
+error = /home/scitech/shared-data/wf-1/scitech/pegasus/print/run0001//00/00/echo_ID0000001.err
+executable = /home/scitech/shared-data/wf-1/scitech/pegasus/print/run0001/00/00/echo_ID0000001.sh
+initialdir = /home/scitech/shared-data/wf-1/wf-scratch/LOCAL/scitech/pegasus/print/run0001
+log = /home/scitech/shared-data/wf-1/scitech/pegasus/print/run0001/print-0.log
+notification = NEVER
+output = /home/scitech/shared-data/wf-1/scitech/pegasus/print/run0001//00/00/echo_ID0000001.out
+periodic_release = False
+periodic_remove = (JobStatus == 5) && ((CurrentTime - EnteredCurrentStatus) > 1800)
+priority = 10
+should_transfer_files = YES
+submit_event_user_notes = pool:condorpool
+transfer_executable = true
+transfer_input_files = /home/scitech/pegasus/dist/pegasus-5.0.0dev/share/pegasus/sh/pegasus-lite-common.sh,/home/scitech/shared-data/wf-1/scitech/pegasus/print/run0001/pegasus-worker-5.0.0dev-x86_64_rhel_7.tar.gz
+transfer_output_files = stdout.txt
+universe = vanilla
+when_to_transfer_output = ON_EXIT
++pegasus_generator = "Pegasus"
++pegasus_root_wf_uuid = "efb67e2c-71bd-4320-9c81-a0c8d77908bb"
++pegasus_wf_uuid = "efb67e2c-71bd-4320-9c81-a0c8d77908bb"
++pegasus_version = "5.0.0dev"
++pegasus_wf_name = "print-0"
++pegasus_wf_time = "20200708T230935+0000"
++pegasus_wf_xformation = "echo"
++pegasus_wf_dax_job_id = "ID0000001"
++pegasus_wf_dag_job_id = "echo_ID0000001"
++pegasus_job_class = 1
++pegasus_site = "condorpool"
++pegasus_job_runtime = 0
++pegasus_cores = 1
++pegasus_cluster_size = 1
+queue
+######################################################################
+# END OF SUBMIT FILE
+######################################################################

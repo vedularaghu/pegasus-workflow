@@ -1,0 +1,6 @@
+{"name": ".//00/00/create_dir_print_0_local.out", "timestamp": "2020-07-08T16:09:52.823780", "exitcode": 0, "app_exitcode": 0, "retry": 0, "std_out": "", "std_err": ""}
+{"name": ".//00/00/echo_ID0000001.out", "timestamp": "2020-07-08T16:10:13.209322", "exitcode": 0, "app_exitcode": 0, "retry": 0, "std_out": "", "std_err": ""}
+{"name": ".//00/00/stage_out_local_local_0_0.out", "timestamp": "2020-07-08T16:10:33.601785", "exitcode": 0, "app_exitcode": 0, "retry": 0, "std_out": "", "std_err": ""}
+{"name": ".//00/00/clean_up_local_level_3_0.out", "timestamp": "2020-07-08T16:10:53.983415", "exitcode": 0, "app_exitcode": 0, "retry": 0, "std_out": "", "std_err": ""}
+{"name": ".//00/00/register_local_0_0.out", "timestamp": "2020-07-08T16:10:53.985651", "exitcode": 0, "app_exitcode": 0, "retry": 0, "std_out": "", "std_err": ""}
+{"name": ".//00/00/cleanup_print_0_local.out", "timestamp": "2020-07-08T16:11:08.405569", "exitcode": 0, "app_exitcode": 0, "retry": 0, "std_out": "", "std_err": ""}

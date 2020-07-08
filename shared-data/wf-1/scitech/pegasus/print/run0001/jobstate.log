@@ -1,0 +1,46 @@
+1594249785 INTERNAL *** MONITORD_STARTED ***
+1594249783 INTERNAL *** DAGMAN_STARTED 1.0 ***
+1594249787 create_dir_print_0_local SUBMIT 2.0 local - 1
+1594249788 create_dir_print_0_local EXECUTE 2.0 local - 1
+1594249790 create_dir_print_0_local JOB_TERMINATED 2.0 local - 1
+1594249792 create_dir_print_0_local JOB_SUCCESS 0 local - 1
+1594249792 create_dir_print_0_local POST_SCRIPT_STARTED 2.0 local - 1
+1594249792 create_dir_print_0_local POST_SCRIPT_TERMINATED 2.0 local - 1
+1594249797 create_dir_print_0_local POST_SCRIPT_SUCCESS 0 local - 1
+1594249802 echo_ID0000001 SUBMIT 3.0 condorpool - 2
+1594249810 echo_ID0000001 EXECUTE 3.0 condorpool - 2
+1594249811 echo_ID0000001 JOB_TERMINATED 3.0 condorpool - 2
+1594249813 echo_ID0000001 JOB_SUCCESS 0 condorpool - 2
+1594249813 echo_ID0000001 POST_SCRIPT_STARTED 3.0 condorpool - 2
+1594249813 echo_ID0000001 POST_SCRIPT_TERMINATED 3.0 condorpool - 2
+1594249818 echo_ID0000001 POST_SCRIPT_SUCCESS 0 condorpool - 2
+1594249823 stage_out_local_local_0_0 SUBMIT 4.0 local - 3
+1594249827 stage_out_local_local_0_0 EXECUTE 4.0 local - 3
+1594249829 stage_out_local_local_0_0 JOB_TERMINATED 4.0 local - 3
+1594249833 stage_out_local_local_0_0 JOB_SUCCESS 0 local - 3
+1594249833 stage_out_local_local_0_0 POST_SCRIPT_STARTED 4.0 local - 3
+1594249833 stage_out_local_local_0_0 POST_SCRIPT_TERMINATED 4.0 local - 3
+1594249838 stage_out_local_local_0_0 POST_SCRIPT_SUCCESS 0 local - 3
+1594249843 clean_up_local_level_3_0 SUBMIT 5.0 local - 4
+1594249843 register_local_0_0 SUBMIT 6.0 local - 5
+1594249848 register_local_0_0 EXECUTE 6.0 local - 5
+1594249848 clean_up_local_level_3_0 EXECUTE 5.0 local - 4
+1594249851 clean_up_local_level_3_0 JOB_TERMINATED 5.0 local - 4
+1594249853 clean_up_local_level_3_0 JOB_SUCCESS 0 local - 4
+1594249853 clean_up_local_level_3_0 POST_SCRIPT_STARTED 5.0 local - 4
+1594249851 register_local_0_0 JOB_TERMINATED 6.0 local - 5
+1594249853 register_local_0_0 JOB_SUCCESS 0 local - 5
+1594249853 register_local_0_0 POST_SCRIPT_STARTED 6.0 local - 5
+1594249854 clean_up_local_level_3_0 POST_SCRIPT_TERMINATED 5.0 local - 4
+1594249858 clean_up_local_level_3_0 POST_SCRIPT_SUCCESS 0 local - 4
+1594249854 register_local_0_0 POST_SCRIPT_TERMINATED 6.0 local - 5
+1594249858 register_local_0_0 POST_SCRIPT_SUCCESS 0 local - 5
+1594249863 cleanup_print_0_local SUBMIT 7.0 local - 6
+1594249864 cleanup_print_0_local EXECUTE 7.0 local - 6
+1594249866 cleanup_print_0_local JOB_TERMINATED 7.0 local - 6
+1594249868 cleanup_print_0_local JOB_SUCCESS 0 local - 6
+1594249868 cleanup_print_0_local POST_SCRIPT_STARTED 7.0 local - 6
+1594249868 cleanup_print_0_local POST_SCRIPT_TERMINATED 7.0 local - 6
+1594249873 cleanup_print_0_local POST_SCRIPT_SUCCESS 0 local - 6
+1594249873 INTERNAL *** DAGMAN_FINISHED 0 ***
+1594249875 INTERNAL *** MONITORD_FINISHED 0 ***

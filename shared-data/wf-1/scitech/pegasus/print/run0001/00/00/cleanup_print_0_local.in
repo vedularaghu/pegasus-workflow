@@ -1,0 +1,6 @@
+[
+  {
+    "id": 1,
+    "type": "remove",
+    "target": { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-1/wf-scratch/LOCAL/scitech/pegasus/print/run0001", "recursive": "True" } }
+]
