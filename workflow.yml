@@ -1,0 +1,22 @@
+pegasus: '5.0'
+name: increment
+replicaCatalog:
+  replicas:
+  - lfn: number.txt
+    pfns:
+    - {site: local, pfn: /home/scitech/shared-data/number.txt}
+transformationCatalog:
+  transformations:
+  - name: increment
+    sites:
+    - {name: local, pfn: /home/scitech/shared-data/increment.py, type: stageable,
+      arch: x86_64, os.type: linux}
+jobs:
+- type: job
+  name: increment
+  id: ID0000001
+  arguments: [number.txt, output.txt]
+  uses:
+  - {lfn: output.txt, type: output, stageOut: true, registerReplica: true}
+  - {lfn: number.txt, type: input}
+jobDependencies: []
