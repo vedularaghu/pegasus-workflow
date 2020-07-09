@@ -1,0 +1,18 @@
+1594337751 INTERNAL *** MONITORD_STARTED ***
+1594337749 INTERNAL *** DAGMAN_STARTED 1.0 ***
+1594337753 create_dir_add_thumbs_0_local SUBMIT 2.0 local - 1
+1594337754 create_dir_add_thumbs_0_local EXECUTE 2.0 local - 1
+1594337756 create_dir_add_thumbs_0_local JOB_TERMINATED 2.0 local - 1
+1594337758 create_dir_add_thumbs_0_local JOB_SUCCESS 0 local - 1
+1594337758 create_dir_add_thumbs_0_local POST_SCRIPT_STARTED 2.0 local - 1
+1594337758 create_dir_add_thumbs_0_local POST_SCRIPT_TERMINATED 2.0 local - 1
+1594337763 create_dir_add_thumbs_0_local POST_SCRIPT_SUCCESS 0 local - 1
+1594337768 stage_in_local_local_0_0 SUBMIT 3.0 local - 2
+1594337770 stage_in_local_local_0_0 EXECUTE 3.0 local - 2
+1594338223 stage_in_local_local_0_0 JOB_TERMINATED 3.0 local - 2
+1594338226 stage_in_local_local_0_0 JOB_FAILURE 1 local - 2
+1594338226 stage_in_local_local_0_0 POST_SCRIPT_STARTED 3.0 local - 2
+1594338226 stage_in_local_local_0_0 POST_SCRIPT_TERMINATED 3.0 local - 2
+1594338231 stage_in_local_local_0_0 POST_SCRIPT_FAILURE 1 local - 2
+1594338236 stage_in_local_local_0_0 SUBMIT 4.0 local - 3
+1594338241 stage_in_local_local_0_0 EXECUTE 4.0 local - 3

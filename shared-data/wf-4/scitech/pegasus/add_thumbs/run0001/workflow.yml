@@ -1,0 +1,23 @@
+pegasus: '5.0'
+name: add_thumbs
+replicaCatalog:
+  replicas:
+  - lfn: input.txt
+    pfns:
+    - {site: local, pfn: /home/scitech/shared-data/wf-4/thumbs_up/input.txt}
+transformationCatalog:
+  transformations:
+  - name: add_thumbs
+    sites:
+    - {name: condorpool, pfn: /usr/bin/add_thumbs_up.py, type: installed, container: thumbs_up}
+  containers:
+  - {name: thumbs_up, type: docker, image: 'docker://vedularaghu/thumbs_up:latest'}
+jobs:
+- type: job
+  name: add_thumbs
+  id: ID0000001
+  arguments: [input.txt, output.txt]
+  uses:
+  - {lfn: input.txt, type: input}
+  - {lfn: output.txt, type: output, stageOut: true, registerReplica: true}
+jobDependencies: []

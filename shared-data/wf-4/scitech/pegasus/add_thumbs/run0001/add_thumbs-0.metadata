@@ -1,0 +1,17 @@
+{
+  "root_workflow_uuid": "f1f6a679-a435-4597-9b2b-1bb5d371261e",
+  "workflow_uuid": "f1f6a679-a435-4597-9b2b-1bb5d371261e",
+  "wf_metadata": {},
+  "graph": {
+    "jobs": {
+      "register_local_0_0": {},
+      "cleanup_add_thumbs_0_local": {},
+      "clean_up_local_level_3_0": {},
+      "stage_out_local_local_0_0": {},
+      "clean_up_local_level_4_0": {},
+      "create_dir_add_thumbs_0_local": {},
+      "add_thumbs_ID0000001": {},
+      "stage_in_local_local_0_0": {}
+    }
+  }
+}

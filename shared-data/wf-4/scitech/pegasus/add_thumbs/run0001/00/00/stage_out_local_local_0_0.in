@@ -1,0 +1,13 @@
+[
+ { "type": "transfer",
+   "linkage": "output",
+   "lfn": "output.txt",
+   "id": 1,
+   "verify_checksum_remote": true,
+   "src_urls": [
+     { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-4/thumbs_up/wf-scratch/LOCAL/scitech/pegasus/add_thumbs/run0001/./output.txt" }
+   ],
+   "dest_urls": [
+     { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-4/thumbs_up/wf-output/output.txt" }
+   ] }
+]

@@ -1,0 +1,6 @@
+[
+  {
+    "id": 1,
+    "type": "remove",
+    "target": { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-4/thumbs_up/wf-scratch/LOCAL/scitech/pegasus/add_thumbs/run0001", "recursive": "True" } }
+]

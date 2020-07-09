@@ -1,0 +1,25 @@
+[
+ { "type": "transfer",
+   "linkage": "input",
+   "lfn": "input.txt",
+   "id": 1,
+   "generate_checksum": true,
+   "src_urls": [
+     { "site_label": "local", "url": "/home/scitech/shared-data/wf-4/thumbs_up/input.txt", "priority": 10 }
+   ],
+   "dest_urls": [
+     { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-4/thumbs_up/wf-scratch/LOCAL/scitech/pegasus/add_thumbs/run0001/./input.txt" }
+   ] }
+ ,
+ { "type": "transfer",
+   "linkage": "input",
+   "lfn": "thumbs_up",
+   "id": 2,
+   "generate_checksum": true,
+   "src_urls": [
+     { "site_label": "CONTAINER_SITE", "url": "docker://vedularaghu/thumbs_up:latest", "priority": 10 }
+   ],
+   "dest_urls": [
+     { "site_label": "local", "url": "file:////home/scitech/shared-data/wf-4/thumbs_up/wf-scratch/LOCAL/scitech/pegasus/add_thumbs/run0001/./thumbs_up", "type": "docker" }
+   ] }
+]
