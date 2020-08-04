@@ -2,7 +2,6 @@
 import os
 import numpy as np 
 import pandas as pd
-from tqdm import tqdm
 import os
 from cv2 import imread, createCLAHE 
 import cv2
@@ -25,7 +24,7 @@ X_shape = 256*2
 im_array = []
 mask_array = []
 norm_img = np.zeros((800,800))
-for i in tqdm(training_files): 
+for i in training_files: 
     im = cv2.resize(cv2.imread(os.path.join(image_path,i.split("_mask")[0]+".png")),(X_shape,X_shape))[:,:,0]
     mask = cv2.resize(cv2.imread(os.path.join(mask_path,i+".png")),(X_shape,X_shape))[:,:,0]    
     final_img = cv2.normalize(im,  norm_img, 0, 255, cv2.NORM_MINMAX)
