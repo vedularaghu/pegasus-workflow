@@ -7,8 +7,8 @@ from cv2 import imread, createCLAHE
 import cv2
 import glob
 
-image_path = os.path.join("./train_images")
-mask_path = os.path.join("./train_masks")
+image_path = os.path.join("./")
+mask_path = os.path.join(".")
 
 images = os.listdir(image_path)
 mask = os.listdir(mask_path)
