@@ -7,8 +7,8 @@ from cv2 import imread, createCLAHE
 import cv2
 import glob
 
-image_path = os.path.join(".")
-mask_path = os.path.join(".")
+image_path = os.path.join("./train_images")
+mask_path = os.path.join("./train_masks")
 
 images = os.listdir(image_path)
 mask = os.listdir(mask_path)
@@ -20,11 +20,6 @@ check = [i for i in mask if "mask" in i]
 testing_files = set(os.listdir(image_path)) & set(os.listdir(mask_path))
 training_files = check
 
-# new_image_path = "./norm_images/"
-# new_mask_path = "./norm_masks/"
-
-os.mkdir(new_image_path)
-os.mkdir(new_mask_path)
 
 X_shape = 256*2
 im_array = []
