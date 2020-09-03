@@ -1,39 +1,44 @@
+#!/usr/bin/env python3
 import numpy as np 
 import tensorflow as tf
 import pandas as pd
 import os
 from cv2 import imread, createCLAHE 
 import cv2
+import pickle
 from glob import glob
 import matplotlib.pyplot as plt
-%matplotlib inline
 from tensorflow.keras.models import *
 from tensorflow.keras.layers import *
 from tensorflow.keras.optimizers import *
 from keras import backend as keras
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import ModelCheckpoint, LearningRateScheduler
-from keras.callbacks import ModelCheckpoint, LearningRateScheduler, EarlyStopping, ReduceLROnPlateau
+from tensorflow.keras.callbacks import ModelCheckpoint, LearningRateScheduler, EarlyStopping, ReduceLROnPlateau
 from IPython.display import clear_output
 from tensorflow.keras.optimizers import Adam 
 from sklearn.model_selection import train_test_split
 
 
-image_path = os.path.join("./norm_images")
-mask_path = os.path.join("./norm_masks")
+infile = open("./data_split.pkl",'rb')
+new_dict = pickle.load(infile)
+infile.close()
 
-images = os.listdir(image_path)
-mask = os.listdir(mask_path)
+path = "."
+
+mask = new_dict['train']
+mask = [i for i in mask if 'mask' in i]
 mask = [fName.split(".png")[0] for fName in mask]
 image_file_name = [fName.split("_mask")[0] for fName in mask]
 
-# check number of masks
 check = [i for i in mask if "mask" in i]
-# print("Total mask that has modified name:",len(check))
 
-testing_files = set(os.listdir(image_path)) & set(os.listdir(mask_path))
-testing_files.remove('.DS_Store')
+testing_files = set(new_dict['test'])
 training_files = check
+
+
+# testing_files = set(new_dict['test']) 
+# training_files = set(new_dict['train'])
 
 def getData(X_shape, flag = "test"):
     im_array = []
@@ -41,8 +46,8 @@ def getData(X_shape, flag = "test"):
     
     if flag == "test":
         for i in testing_files: 
-            im = cv2.resize(cv2.imread(os.path.join(image_path,i)),(X_shape,X_shape))[:,:,0]
-            mask = cv2.resize(cv2.imread(os.path.join(mask_path,i)),(X_shape,X_shape))[:,:,0]
+            im = cv2.resize(cv2.imread(os.path.join(path,i)),(X_shape,X_shape))[:,:,0]
+            mask = cv2.resize(cv2.imread(os.path.join(path,i)),(X_shape,X_shape))[:,:,0]
             
             im_array.append(im)
             mask_array.append(mask)
@@ -51,8 +56,8 @@ def getData(X_shape, flag = "test"):
     
     if flag == "train":
         for i in training_files: 
-            im = cv2.resize(cv2.imread(os.path.join(image_path,i.split("_mask")[0]+".png")),(X_shape,X_shape))[:,:,0]
-            mask = cv2.resize(cv2.imread(os.path.join(mask_path,i+".png")),(X_shape,X_shape))[:,:,0]
+            im = cv2.resize(cv2.imread(os.path.join(path,i.split("_mask_norm")[0]+"_norm.png")),(X_shape,X_shape))[:,:,0]
+            mask = cv2.resize(cv2.imread(os.path.join(path,i+".png")),(X_shape,X_shape))[:,:,0]
 
             im_array.append(im)
             mask_array.append(mask)
@@ -63,10 +68,10 @@ dim = 256*2
 X_train,y_train = getData(dim,flag="train")
 X_test, y_test = getData(dim)
 
-X_train = np.array(X_train).reshape(len(X_train),dim,dim,1)
-y_train = np.array(y_train).reshape(len(y_train),dim,dim,1)
-X_test = np.array(X_test).reshape(len(X_test),dim,dim,1)
-y_test = np.array(y_test).reshape(len(y_test),dim,dim,1)
+X_train = np.array(X_train).reshape((len(X_train),dim,dim,1))
+y_train = np.array(y_train).reshape((len(y_train),dim,dim,1))
+X_test = np.array(X_test).reshape((len(X_test),dim,dim,1))
+y_test = np.array(y_test).reshape((len(y_test),dim,dim,1))
 assert X_train.shape == y_train.shape
 assert X_test.shape == y_test.shape
 images = np.concatenate((X_train,X_test),axis=0)
@@ -166,8 +171,4 @@ loss_history = model.fit(x = train_vol,
 
 clear_output()
 
-model.save("./")
-
-
-
-
+model.save_weights("model.h5")

@@ -1,13 +1,10 @@
 #!/usr/bin/env python3
 import os
-import numpy as np 
-import pandas as pd
-import os
-from cv2 import imread, createCLAHE 
 import cv2
-import glob
+import numpy as np
+from cv2 import imread 
 
-DIR = "./"
+DIR = "."
 X_shape = 256*2
 norm_img = np.zeros((800,800))
 
@@ -21,7 +18,7 @@ class DataPreprocessing:
         return final_img
 
 files = os.listdir(DIR)
-images = [i for i in files if i != '.DS_Store']
+images = [i for i in files if ".png" in i]
 
 dp = DataPreprocessing()
 
