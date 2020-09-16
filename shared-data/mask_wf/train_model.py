@@ -17,11 +17,11 @@ from tensorflow.keras.optimizers import Adam
 
 class UNet:
     def DataLoader(self):
-        infile = open("./op/data_split.pkl",'rb')
+        infile = open("./data_split.pkl",'rb')
         new_dict = pickle.load(infile)
         infile.close()
 
-        path = "./op"
+        path = "."
 
         train_data = new_dict['train']
         valid_data = new_dict['valid']
