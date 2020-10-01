@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import argparse
 import numpy as np 
 import tensorflow as tf
 import pandas as pd
@@ -12,14 +13,33 @@ from tensorflow.keras.layers import *
 from tensorflow.keras.optimizers import *
 from keras import backend as keras
 from tensorflow.keras.optimizers import Adam 
+from tensorflow.keras.callbacks import ModelCheckpoint, LearningRateScheduler, Callback
+from tensorflow.keras.callbacks import ModelCheckpoint, LearningRateScheduler, EarlyStopping, ReduceLROnPlateau
+import ray
+from ray import tune
+
+def parse_args(args):
+    parser = argparse.ArgumentParser(description='Lung Image Segmentation Using UNet Architecture')
+    parser.add_argument('-epochs',  metavar='num_epochs', type=int, default = 5, help = "Number of training epochs")
+    parser.add_argument('--batch_size',  metavar='batch_size', type=int, default = 16, help = "Batch Size")
+    return parser.parse_args()
+
+class TuneReporterCallback(Callback):
+    def __init__(self, logs={}):
+        self.iteration = 0
+        super(TuneReporterCallback, self).__init__()
+
+    def on_epoch_end(self, batch, logs={}):
+        self.iteration += 1
+        tune.report(keras_info=logs, mean_accuracy=logs.get("accuracy"), mean_loss=logs.get("loss"))
 
 class UNet:
     def DataLoader(self):
-        infile = open("./data_split.pkl",'rb')
+        infile = open(os.getcwd()+"/data_split.pkl",'rb')
         new_dict = pickle.load(infile)
         infile.close()
 
-        path = "."
+        path = os.getcwd()+"/"
 
         train_data = new_dict['train']
         valid_data = new_dict['valid']
@@ -87,22 +107,59 @@ class UNet:
         return Model(inputs=[inputs], outputs=[conv10])
 
 def dice_coef(y_true, y_pred):
-        y_true_f = keras.flatten(y_true)
-        y_pred_f = keras.flatten(y_pred)
-        intersection = keras.sum(y_true_f * y_pred_f)
-        return (2. * intersection + 1) / (keras.sum(y_true_f) + keras.sum(y_pred_f) + 1)
+    y_true_f = keras.flatten(y_true)
+    y_pred_f = keras.flatten(y_pred)
+    intersection = keras.sum(y_true_f * y_pred_f)
+    return (2. * intersection + 1) / (keras.sum(y_true_f) + keras.sum(y_pred_f) + 1)
     
 def dice_coef_loss(y_true, y_pred):
     return -dice_coef(y_true, y_pred)
 
-unet = UNet()
 
-model = unet.model()
 
-model.compile(optimizer=Adam(lr=2e-4), loss=[dice_coef_loss], metrics = [dice_coef, 'binary_accuracy'])
+class TuneReporterCallback(Callback):
+    def __init__(self, logs={}):
+        self.iteration = 0
+        super(TuneReporterCallback, self).__init__()
 
-train_vol, train_seg, valid_vol, valid_seg = unet.DataLoader()
+    def on_epoch_end(self, batch, logs={}):
+        self.iteration += 1
+        tune.report(keras_info=logs, mean_accuracy=logs.get("accuracy"), mean_loss=logs.get("loss"))
 
-model.fit(x = train_vol, y = train_seg, batch_size = 16, epochs = 5, validation_data =(valid_vol, valid_seg))
+def tune_unet(config):
+    unet = UNet()
+    model = unet.model()
+    checkpoint_callback = ModelCheckpoint("model.h5", monitor='loss', save_best_only=True, save_freq=2)
+    callbacks = [checkpoint_callback, TuneReporterCallback()]
+    model.compile(optimizer=Adam(lr=config["lr"]), loss=[dice_coef_loss], metrics = [dice_coef, 'binary_accuracy'])
+    train_vol, train_seg, valid_vol, valid_seg = unet.DataLoader()
+    loss_history = model.fit(x = train_vol, y = train_seg, batch_size = 16, epochs = 5, validation_data =(valid_vol, valid_seg), callbacks = callbacks)
+    
+    return loss_history
 
-model.save_weights("model.h5")
+def main():
+    np.random.seed(5)  
+    hyperparameter_space = {
+        "lr": tune.loguniform(0.0002, 0.2)
+        }
+
+    TRIALS = 3
+
+    ray.shutdown()  
+    ray.init(log_to_driver=False)
+
+    analysis = tune.run(
+        tune_unet, 
+        verbose=1, 
+        config=hyperparameter_space,
+        num_samples=TRIALS)
+
+    df = analysis.dataframe()
+    df.to_csv("tune_unet.csv", sep='\t', encoding='utf-8')
+
+#__name__ prints tensorflow.keras.optimizers
+
+main()
+
+    
+    
