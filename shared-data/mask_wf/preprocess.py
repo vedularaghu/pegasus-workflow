@@ -10,7 +10,8 @@ norm_img = np.zeros((800,800))
 
 class DataPreprocessing:    
     
-    def normalize(self, i):
+    @staticmethod
+    def normalize(i):
         
         im = cv2.resize(cv2.imread(os.path.join(DIR, i)),(X_shape,X_shape))[:,:,0]
         final_img = cv2.normalize(im,  norm_img, 0, 255, cv2.NORM_MINMAX)
