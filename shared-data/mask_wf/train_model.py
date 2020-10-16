@@ -150,14 +150,13 @@ def create_study(checkpoint_file):
     STUDY = joblib.load("study_checkpoint.pkl")
     todo_trials = N_TRIALS - len(STUDY)
 
-    if todo_trials > 0 :           
-        analysis = tune.run(
-                    tune_unet, 
-                    verbose=1, 
-                    config=hyperparameter_space,
-                    num_samples=todo_trials)            
-        df = analysis.results_df
-        df.to_pickle(checkpoint_file) 
+    analysis = tune.run(
+                tune_unet, 
+                verbose=1, 
+                config=hyperparameter_space,
+                num_samples=todo_trials)            
+    df = analysis.results_df
+    df.to_pickle(checkpoint_file) 
         
 
 def main():
