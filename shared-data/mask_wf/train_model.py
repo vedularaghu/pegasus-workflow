@@ -39,11 +39,11 @@ class TuneReporterCallback(Callback):
 class UNet:
     def DataLoader(self):
                 
-        infile = open("/Users/riyuzaki/pegasus-workflow/shared-data/mask_wf/op/data_split.pkl",'rb')
+        infile = open(CURR_PATH+"/data_split.pkl",'rb')
         new_dict = pickle.load(infile)
         infile.close()
 
-        path = "/Users/riyuzaki/pegasus-workflow/shared-data/mask_wf/"
+        path = CURR_PATH
 
         train_data = new_dict['train']
         valid_data = new_dict['valid']
@@ -177,7 +177,9 @@ def main():
     global EPOCHS
     global BATCH_SIZE
     global N_TRIALS
+    global CURR_PATH
     N_TRIALS = 1
+    CURR_PATH = os.getcwd()
     
     try:       
         args = parse_args(sys.argv[1:])
