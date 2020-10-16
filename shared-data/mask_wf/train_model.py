@@ -147,30 +147,18 @@ def create_study(checkpoint_file):
         "lr": tune.loguniform(0.0002, 0.2)
         }   
     
-    try:
-        STUDY = joblib.load("study_checkpoint.pkl")
-        todo_trials = N_TRIALS - len(STUDY)
-        
-        if todo_trials > 0 :           
-            analysis = tune.run(
-                        tune_unet, 
-                        verbose=1, 
-                        config=hyperparameter_space,
-                        num_samples=todo_trials)            
-            df = analysis.results_df
-            df.to_pickle(checkpoint_file) 
-        else:
-            pass
-        
-    except Exception as e:        
-        analysis = tune.run(
-            tune_unet, 
-            verbose=1, 
-            config=hyperparameter_space,
-            num_samples=N_TRIALS)
+    STUDY = joblib.load("study_checkpoint.pkl")
+    todo_trials = N_TRIALS - len(STUDY)
 
+    if todo_trials > 0 :           
+        analysis = tune.run(
+                    tune_unet, 
+                    verbose=1, 
+                    config=hyperparameter_space,
+                    num_samples=todo_trials)            
         df = analysis.results_df
         df.to_pickle(checkpoint_file) 
+        
 
 def main():
     
@@ -181,24 +169,16 @@ def main():
     N_TRIALS = 1
     CURR_PATH = os.getcwd()
     
-    try:       
-        args = parse_args(sys.argv[1:])
-        
-        EPOCHS = args.epochs
-        BATCH_SIZE = args.batch_size
-        #N_TRIALS = args.n_trials
-        
-        hpo_checkpoint_file = "study_checkpoint.pkl"
+    args = parse_args(sys.argv[1:])
 
-        create_study(hpo_checkpoint_file)
+    EPOCHS = args.epochs
+    BATCH_SIZE = args.batch_size
+    #N_TRIALS = args.n_trials
 
-    except Exception as e:
-        print(e)
-        pass  
-  
-    return 0
+    hpo_checkpoint_file = "study_checkpoint.pkl"
 
-
+    create_study(hpo_checkpoint_file)
+     
 
 #__name__ prints tensorflow.keras.optimizers
 
