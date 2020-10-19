@@ -133,7 +133,7 @@ class TuneReporterCallback(Callback):
 def tune_unet(config):
     unet = UNet()
     model = unet.model()
-    checkpoint_callback = ModelCheckpoint("model.h5", monitor='loss', save_best_only=True, save_freq=2)
+    checkpoint_callback = ModelCheckpoint(os.path.join(CURR_PATH, "model.h5"), monitor='loss', save_best_only=True, save_freq=2)
     callbacks = [checkpoint_callback, TuneReporterCallback()]
     model.compile(optimizer=Adam(lr=config["lr"]), loss=[dice_coef_loss], metrics = [dice_coef, 'binary_accuracy'])
     train_vol, train_seg, valid_vol, valid_seg = unet.DataLoader()
@@ -152,7 +152,7 @@ def create_study(checkpoint_file):
 
     analysis = tune.run(
                 tune_unet, 
-                verbose=1, 
+                verbose=1,
                 config=hyperparameter_space,
                 num_samples=todo_trials)            
     df = analysis.results_df
