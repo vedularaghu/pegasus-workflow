@@ -3,7 +3,9 @@ import argparse
 import numpy as np 
 import tensorflow as tf
 import pandas as pd
+import joblib
 import os
+import sys
 from cv2 import imread, createCLAHE 
 import cv2
 import pickle
@@ -22,6 +24,7 @@ def parse_args(args):
     parser = argparse.ArgumentParser(description='Lung Image Segmentation Using UNet Architecture')
     parser.add_argument('-epochs',  metavar='num_epochs', type=int, default = 5, help = "Number of training epochs")
     parser.add_argument('--batch_size',  metavar='batch_size', type=int, default = 16, help = "Batch Size")
+    #parser.add_argument('-n_trials',  metavar='num_trials', type=int, default = 3, help = "Number of Trials")
     return parser.parse_args()
 
 class TuneReporterCallback(Callback):
@@ -35,11 +38,12 @@ class TuneReporterCallback(Callback):
 
 class UNet:
     def DataLoader(self):
-        infile = open(os.getcwd()+"/data_split.pkl",'rb')
+                
+        infile = open(CURR_PATH+"/data_split.pkl",'rb')
         new_dict = pickle.load(infile)
         infile.close()
 
-        path = os.getcwd()+"/"
+        path = CURR_PATH
 
         train_data = new_dict['train']
         valid_data = new_dict['valid']
@@ -129,37 +133,54 @@ class TuneReporterCallback(Callback):
 def tune_unet(config):
     unet = UNet()
     model = unet.model()
-    checkpoint_callback = ModelCheckpoint("model.h5", monitor='loss', save_best_only=True, save_freq=2)
+    checkpoint_callback = ModelCheckpoint(os.path.join(CURR_PATH, "model.h5"), monitor='loss', save_best_only=True, save_freq=2)
     callbacks = [checkpoint_callback, TuneReporterCallback()]
     model.compile(optimizer=Adam(lr=config["lr"]), loss=[dice_coef_loss], metrics = [dice_coef, 'binary_accuracy'])
     train_vol, train_seg, valid_vol, valid_seg = unet.DataLoader()
-    loss_history = model.fit(x = train_vol, y = train_seg, batch_size = 16, epochs = 5, validation_data =(valid_vol, valid_seg), callbacks = callbacks)
+    loss_history = model.fit(x = train_vol, y = train_seg, batch_size = BATCH_SIZE, epochs = EPOCHS, validation_data =(valid_vol, valid_seg), callbacks = callbacks)
     
     return loss_history
 
-def main():
+def create_study(checkpoint_file):
     np.random.seed(5)  
     hyperparameter_space = {
         "lr": tune.loguniform(0.0002, 0.2)
-        }
-
-    TRIALS = 3
-
-    ray.shutdown()  
-    ray.init(log_to_driver=False)
+        }   
+    
+    STUDY = joblib.load("study_checkpoint.pkl")
+    todo_trials = N_TRIALS - len(STUDY)
 
     analysis = tune.run(
-        tune_unet, 
-        verbose=1, 
-        config=hyperparameter_space,
-        num_samples=TRIALS)
+                tune_unet, 
+                verbose=1,
+                config=hyperparameter_space,
+                num_samples=todo_trials)            
+    df = analysis.results_df
+    df.to_pickle(checkpoint_file) 
+        
 
-    df = analysis.dataframe()
-    df.to_csv("tune_unet.csv", sep='\t', encoding='utf-8')
+def main():
+    
+    global EPOCHS
+    global BATCH_SIZE
+    global N_TRIALS
+    global CURR_PATH
+    N_TRIALS = 1
+    CURR_PATH = os.getcwd()
+    
+    args = parse_args(sys.argv[1:])
+
+    EPOCHS = args.epochs
+    BATCH_SIZE = args.batch_size
+    #N_TRIALS = args.n_trials
+
+    hpo_checkpoint_file = "study_checkpoint.pkl"
+
+    create_study(hpo_checkpoint_file)
+     
 
 #__name__ prints tensorflow.keras.optimizers
 
 main()
 
-    
-    
+
