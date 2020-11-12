@@ -11,7 +11,7 @@ RUN apt install -y \
 RUN pip3 install --upgrade pip setuptools
 RUN pip3 install \
     scikit-learn \
-    tensorflow \
+    tensorflow==2.2.0 \
     h5py \
     numpy==1.18.4 \
     pandas \
@@ -28,3 +28,6 @@ COPY data_split.py ./
 RUN chmod 777 ./data_split.py
 COPY train_model.py ./
 RUN chmod 777 ./train_model.py
+RUN groupadd --gid 808 scitech-group
+RUN useradd --gid 808 --uid 550 --create-home --password '$6$ouJkMasm5X8E4Aye$QTFH2cHk4b8/TmzAcCxbTz7Y84xyNFs.gqm/HWEykdngmOgELums1qOi3e6r8Z.j7GEA9bObS/2pTN1WArGNf0' scitech
+ENV LANG C.UTF-8
