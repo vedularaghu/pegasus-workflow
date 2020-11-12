@@ -23,37 +23,44 @@ props.write()
 
 tc = TransformationCatalog()
 
-unet_wf = Container(
-                "unet_wf",
-                Container.DOCKER,
-                image="docker://vedularaghu/unet_wf:latest"
-            )
+# unet_wf = Container(
+#                 "unet_wf",
+#                 Container.DOCKER,
+#                 image="docker://vedularaghu/unet_wf:latest"
+#             )
 
-tc.add_containers(unet_wf)
+# tc.add_containers(unet_wf)
 
 preprocess = Transformation(
                 "preprocess",
                 site="condorpool",
                 pfn="/usr/bin/preprocess.py",
-                is_stageable=False,
-                container=unet_wf
+                is_stageable=False
             )
+
+preprocess.add_condor_profile(requirements = 'HAS_SINGULARITY == True')
+preprocess.add_profiles(Namespace.CONDOR, key="+SingularityImage", value="/cvmfs/singularity.opensciencegrid.org/vedularaghu/unet_wf:latest")
+
 
 data_split = Transformation(
                 "data_split",
                 site="condorpool",
                 pfn="/usr/bin/data_split.py",
-                is_stageable=False,
-                container=unet_wf
+                is_stageable=False
             )
+
+data_split.add_condor_profile(requirements = 'HAS_SINGULARITY == True')
+data_split.add_profiles(Namespace.CONDOR, key="+SingularityImage", value="/cvmfs/singularity.opensciencegrid.org/vedularaghu/unet_wf:latest")
 
 train_model = Transformation( 
                 "train_model",
                 site="condorpool",
                 pfn="/usr/bin/train_model.py",
-                is_stageable=False,
-                container=unet_wf
+                is_stageable=False
             )
+
+train_model.add_condor_profile(requirements = 'HAS_SINGULARITY == True')
+train_model.add_profiles(Namespace.CONDOR, key="+SingularityImage", value="/cvmfs/singularity.opensciencegrid.org/vedularaghu/unet_wf:latest")
 
 
 tc.add_transformations(preprocess, data_split, train_model).write()
