@@ -3,8 +3,8 @@ WORKDIR /usr/bin
 RUN apt-get update && \
     apt-get install -y software-properties-common && \
     add-apt-repository ppa:deadsnakes/ppa
-RUN apt update
-RUN apt install -y \
+RUN apt update && \
+    apt install -y \
     python3.6 \
     python3-pip \
     libgl1-mesa-glx \
