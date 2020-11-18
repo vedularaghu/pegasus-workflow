@@ -7,7 +7,9 @@ RUN apt update
 RUN apt install -y \
     python3.6 \
     python3-pip \
-    libgl1-mesa-glx
+    libgl1-mesa-glx \
+    wget \
+    curl
 RUN pip3 install --upgrade pip setuptools
 RUN pip3 install \
     scikit-learn \
