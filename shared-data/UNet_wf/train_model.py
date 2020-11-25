@@ -46,8 +46,7 @@ class UNet:
         path = CURR_PATH
 
         train_data = new_dict['train']
-        valid_data = new_dict['valid']
-        test_data = new_dict['test']
+        valid_data = new_dict['valid']        
 
         X_train = [cv2.imread(os.path.join(path,i))[:,:,0] for i in train_data if 'mask' not in i]
         y_train = [cv2.imread(os.path.join(path,i))[:,:,0] for i in train_data if 'mask' in i]
@@ -55,15 +54,12 @@ class UNet:
         X_valid = [cv2.imread(os.path.join(path,i))[:,:,0] for i in valid_data if 'mask' not in i]
         y_valid = [cv2.imread(os.path.join(path,i))[:,:,0] for i in valid_data if 'mask' in i]
 
-        X_test = [cv2.imread(os.path.join(path,i))[:,:,0] for i in test_data]
-
         dim = 256
 
         X_train = np.array(X_train).reshape((len(X_train),dim,dim,1))
         y_train = np.array(y_train).reshape((len(y_train),dim,dim,1))
         X_valid = np.array(X_valid).reshape((len(X_valid),dim,dim,1))
         y_valid = np.array(y_valid).reshape((len(y_valid),dim,dim,1))
-        X_test = np.array(X_test).reshape((len(X_test),dim,dim,1))
         assert X_train.shape == y_train.shape
         assert X_valid.shape == y_valid.shape
 
@@ -133,7 +129,7 @@ class TuneReporterCallback(Callback):
 def tune_unet(config):
     unet = UNet()
     model = unet.model()
-    checkpoint_callback = ModelCheckpoint(os.path.join(CURR_PATH, "model.h5"), monitor='loss', save_best_only=True, save_freq=2)
+    checkpoint_callback = ModelCheckpoint(os.path.join(CURR_PATH, "model.h5"), monitor='loss', save_best_only=True, save_weights_only=False, save_freq=2)
     callbacks = [checkpoint_callback, TuneReporterCallback()]
     model.compile(optimizer=Adam(lr=config["lr"]), loss=[dice_coef_loss], metrics = [dice_coef, 'binary_accuracy'])
     train_vol, train_seg, valid_vol, valid_seg = unet.DataLoader()
@@ -165,6 +161,7 @@ def main():
     global BATCH_SIZE
     global N_TRIALS
     global CURR_PATH
+    global loss_history
     N_TRIALS = 1
     CURR_PATH = os.getcwd()
     
