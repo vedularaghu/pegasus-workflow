@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
+import sys
 import argparse
+
+from pathlib import Path
 import numpy as np 
 import tensorflow as tf
 import pandas as pd
 import joblib
 import os
-import sys
 from cv2 import imread, createCLAHE 
 import cv2
 import pickle
@@ -21,11 +23,31 @@ import ray
 from ray import tune
 
 def parse_args(args):
-    parser = argparse.ArgumentParser(description='Lung Image Segmentation Using UNet Architecture')
+    parser = argparse.ArgumentParser(description="Enter description here")
+    parser.add_argument(
+                "-i",
+                "--input_dir",
+                default=".",
+                help="directory where input files will be read from"
+            )
+
+    parser.add_argument(
+                "-o",
+                "--output_dir",
+                default=".",
+                help="directory where output files will be written to"
+            )
+    
     parser.add_argument('-epochs',  metavar='num_epochs', type=int, default = 5, help = "Number of training epochs")
     parser.add_argument('--batch_size',  metavar='batch_size', type=int, default = 16, help = "Batch Size")
-    #parser.add_argument('-n_trials',  metavar='num_trials', type=int, default = 3, help = "Number of Trials")
-    return parser.parse_args()
+
+    return parser.parse_args(args)    
+
+# def parse_args(args):
+#     parser = argparse.ArgumentParser(description='Lung Image Segmentation Using UNet Architecture')
+    
+#     #parser.add_argument('-n_trials',  metavar='num_trials', type=int, default = 3, help = "Number of Trials")
+#     return parser.parse_args()
 
 class TuneReporterCallback(Callback):
     def __init__(self, logs={}):
@@ -144,8 +166,13 @@ def create_study(checkpoint_file):
     ray.shutdown()  
     ray.init(log_to_driver=False)
     
+    if not os.path.isfile(checkpoint_file):
+        df = pd.DataFrame(list())
+        df.to_pickle(checkpoint_file)
+    
     STUDY = joblib.load("study_checkpoint.pkl")
     todo_trials = N_TRIALS - len(STUDY)
+    print("------here", todo_trials)
     analysis = tune.run(
                 tune_unet, 
                 verbose=1,
@@ -153,31 +180,46 @@ def create_study(checkpoint_file):
                 num_samples=todo_trials)            
     df = analysis.results_df
     df.to_pickle(checkpoint_file) 
-        
-
-def main():
     
+if __name__=="__main__":
     global EPOCHS
     global BATCH_SIZE
     global N_TRIALS
     global CURR_PATH
     global loss_history
-    N_TRIALS = 1
-    CURR_PATH = os.getcwd()
+    global N_TRIALS
     
     args = parse_args(sys.argv[1:])
+    print("reading files from: {}".format(Path(args.input_dir).resolve()))
 
+    CURR_PATH = args.input_dir
+    # collect all the files you need (i.e. all filenames that match "*.jpg")
+    for f in Path(args.input_dir).iterdir():
+        print(f.resolve())
+
+    # do your computation, processing, data cleaning, etc
     EPOCHS = args.epochs
     BATCH_SIZE = args.batch_size
-    #N_TRIALS = args.n_trials
+    N_TRIALS = 1
 
     hpo_checkpoint_file = "study_checkpoint.pkl"
 
     create_study(hpo_checkpoint_file)
+
+    print("writing output files to: {}".format(Path(args.output_dir).resolve()))
+        
+
+# def main():
+    
+    
+    
+#     args = parse_args(sys.argv[1:])
+
+    
      
 
-#__name__ prints tensorflow.keras.optimizers
+# #__name__ prints tensorflow.keras.optimizers
 
-main()
+# main()
 
 

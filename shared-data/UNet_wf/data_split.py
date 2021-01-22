@@ -3,6 +3,9 @@
 #Validation = 20%
 #TEST = 10%
 
+import sys
+import argparse
+from pathlib import Path
 import os
 import cv2
 import numpy as np
@@ -10,10 +13,35 @@ from cv2 import imread
 from collections import defaultdict
 import pickle
 
-DIR = "."
-filename = "data_split.pkl"
+def parse_args(args):
+    parser = argparse.ArgumentParser(description="Enter description here")
+    parser.add_argument(
+                "-i",
+                "--input_dir",
+                default=".",
+                help="directory where input files will be read from"
+            )
 
-def main():
+    parser.add_argument(
+                "-o",
+                "--output_dir",
+                default=".",
+                help="directory where output files will be written to"
+            )
+
+    return parser.parse_args(args)
+
+if __name__=="__main__":
+    args = parse_args(sys.argv[1:])
+    print("reading files from: {}".format(Path(args.input_dir).resolve()))
+
+    # collect all the files you need (i.e. all filenames that match "*.jpg")
+    for f in Path(args.input_dir).iterdir():
+        print(f.resolve())
+
+    # do your computation, processing, data cleaning, etc
+    DIR = args.input_dir
+    filename = os.path.join(args.input_dir, "data_split.pkl")
     data = defaultdict(list)
     valid_data = list()
     mask_valid = list()
@@ -32,10 +60,10 @@ def main():
     masks = [i for i in masks if i not in valid_data]
     data["train"] = images + masks
     data["valid"] = valid_data
-    data["test"] = test[:int(0.1*len(images))]
+    data["test"] = test
+    print("------here", data)    
     output_file = open(filename, 'wb')
     pickle.dump(data, output_file)
     output_file.close()
-    
-if __name__ == "__main__":
-    main()
+
+    print("writing output files to: {}".format(Path(args.output_dir).resolve()))

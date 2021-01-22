@@ -1,28 +1,75 @@
+#!/usr/bin/env python3
+import sys
+import argparse
 import h5py
 import pickle
 import os
 from tensorflow.keras.models import load_model
+import numpy as np
+import cv2
 
-CURR_PATH = os.getcwd()
+from pathlib import Path
 
-infile = open(CURR_PATH + "/data_split.pkl",'rb')
+def parse_args(args):
+    parser = argparse.ArgumentParser(description="Enter description here")
+    parser.add_argument(
+                "-i",
+                "--input_dir",
+                default=".",
+                help="directory where input files will be read from"
+            )
 
-new_dict = pickle.load(infile)
+    parser.add_argument(
+                "-o",
+                "--output_dir",
+                default=".",
+                help="directory where output files will be written to"
+            )
 
-infile.close()
+    return parser.parse_args(args)
 
-path = CURR_PATH
+if __name__=="__main__":
+    args = parse_args(sys.argv[1:])
+    print("reading files from: {}".format(Path(args.input_dir).resolve()))
 
-test_data = new_dict['test']
+    # collect all the files you need (i.e. all filenames that match "*.jpg")
+    for f in Path(args.input_dir).iterdir():
+        print(f.resolve())
 
-X_test = [cv2.imread(os.path.join(path,i))[:,:,0] for i in test_data]
+    # do your computation, processing, data cleaning, etc
+    
+    CURR_PATH = args.input_dir
 
-model = load_model(CURR_PATH+"/model.h5", compile=False)
+    infile = open(CURR_PATH + "/data_split.pkl",'rb')
 
-test_vol = np.array(X_test, dtype=np.float32)
+    new_dict = pickle.load(infile)
+    
+    print("_____here", new_dict)
 
-preds = model.predict(test_vol)
+    infile.close()
 
-for i in range(len(preds)):
-    img = np.squeeze(preds[pred_candidates[i]])
-    cv2.imwrite(str(test_data[i].split('.png')[0]+'_mask.png'), img)
+    path = CURR_PATH
+
+    test_data = new_dict['test']
+
+    X_test = [cv2.imread(os.path.join(path,i))[:,:,0] for i in test_data]
+
+    model = load_model(CURR_PATH+"/model.h5", compile=False)
+
+    test_vol = np.array(X_test, dtype=np.float32)
+    
+    print(test_vol)
+
+    preds = model.predict(test_vol)
+
+    pred_candidates = np.random.randint(1,test_vol.shape[0],len(preds))
+
+    for i in range(len(preds)):
+        img = np.squeeze(preds[pred_candidates[i]])
+        cv2.imwrite(str(test_data[i].split('.png')[0]+'_mask.png'), img)
+
+    print("writing output files to: {}".format(Path(args.output_dir).resolve()))
+    
+    
+
+
