@@ -23,18 +23,18 @@ import ray
 from ray import tune
 
 def parse_args(args):
-    parser = argparse.ArgumentParser(description="Enter description here")
+    parser = argparse.ArgumentParser(description="Lung Image Segmentation Using UNet Architecture")
     parser.add_argument(
                 "-i",
                 "--input_dir",
-                default=".",
+                default=os.getcwd(),
                 help="directory where input files will be read from"
             )
 
     parser.add_argument(
                 "-o",
                 "--output_dir",
-                default=".",
+                default=os.getcwd(),
                 help="directory where output files will be written to"
             )
     
@@ -42,12 +42,6 @@ def parse_args(args):
     parser.add_argument('--batch_size',  metavar='batch_size', type=int, default = 16, help = "Batch Size")
 
     return parser.parse_args(args)    
-
-# def parse_args(args):
-#     parser = argparse.ArgumentParser(description='Lung Image Segmentation Using UNet Architecture')
-    
-#     #parser.add_argument('-n_trials',  metavar='num_trials', type=int, default = 3, help = "Number of Trials")
-#     return parser.parse_args()
 
 class TuneReporterCallback(Callback):
     def __init__(self, logs={}):
@@ -61,11 +55,11 @@ class TuneReporterCallback(Callback):
 class UNet:
     def DataLoader(self):
                 
-        infile = open(CURR_PATH+"/data_split.pkl",'rb')
+        infile = open(OUTPUT_FOLDER+"/data_split.pkl",'rb')
         new_dict = pickle.load(infile)
         infile.close()
 
-        path = CURR_PATH
+        path = OUTPUT_FOLDER
 
         train_data = new_dict['train']
         valid_data = new_dict['valid']        
@@ -151,7 +145,7 @@ class TuneReporterCallback(Callback):
 def tune_unet(config):
     unet = UNet()
     model = unet.model()
-    checkpoint_callback = ModelCheckpoint(os.path.join(CURR_PATH, "model.h5"), monitor='loss', save_best_only=True, save_weights_only=False, save_freq=2)
+    checkpoint_callback = ModelCheckpoint(os.path.join(OUTPUT_FOLDER, "model.h5"), monitor='loss', save_best_only=True, save_weights_only=False, save_freq=2)
     callbacks = [checkpoint_callback, TuneReporterCallback()]
     model.compile(optimizer=Adam(lr=config["lr"]), loss=[dice_coef_loss], metrics = [dice_coef, 'binary_accuracy'])
     train_vol, train_seg, valid_vol, valid_seg = unet.DataLoader()
@@ -168,18 +162,17 @@ def create_study(checkpoint_file):
     
     if not os.path.isfile(checkpoint_file):
         df = pd.DataFrame(list())
-        df.to_pickle(checkpoint_file)
+        df.to_pickle(os.path.join(OUTPUT_FOLDER, checkpoint_file))
     
     STUDY = joblib.load("study_checkpoint.pkl")
     todo_trials = N_TRIALS - len(STUDY)
-    print("------here", todo_trials)
     analysis = tune.run(
                 tune_unet, 
                 verbose=1,
                 config=hyperparameter_space,
                 num_samples=todo_trials)            
     df = analysis.results_df
-    df.to_pickle(checkpoint_file) 
+    df.to_pickle(os.path.join(OUTPUT_FOLDER, checkpoint_file)) 
     
 if __name__=="__main__":
     global EPOCHS
@@ -190,14 +183,8 @@ if __name__=="__main__":
     global N_TRIALS
     
     args = parse_args(sys.argv[1:])
-    print("reading files from: {}".format(Path(args.input_dir).resolve()))
+    OUTPUT_FOLDER = args.input_dir
 
-    CURR_PATH = args.input_dir
-    # collect all the files you need (i.e. all filenames that match "*.jpg")
-    for f in Path(args.input_dir).iterdir():
-        print(f.resolve())
-
-    # do your computation, processing, data cleaning, etc
     EPOCHS = args.epochs
     BATCH_SIZE = args.batch_size
     N_TRIALS = 1
@@ -205,21 +192,5 @@ if __name__=="__main__":
     hpo_checkpoint_file = "study_checkpoint.pkl"
 
     create_study(hpo_checkpoint_file)
-
-    print("writing output files to: {}".format(Path(args.output_dir).resolve()))
-        
-
-# def main():
-    
-    
-    
-#     args = parse_args(sys.argv[1:])
-
-    
-     
-
-# #__name__ prints tensorflow.keras.optimizers
-
-# main()
 
 

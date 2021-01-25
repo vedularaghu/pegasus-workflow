@@ -11,18 +11,18 @@ import cv2
 from pathlib import Path
 
 def parse_args(args):
-    parser = argparse.ArgumentParser(description="Enter description here")
+    parser = argparse.ArgumentParser(description="Predicting masks")
     parser.add_argument(
                 "-i",
                 "--input_dir",
-                default=".",
+                default=os.getcwd(),
                 help="directory where input files will be read from"
             )
 
     parser.add_argument(
                 "-o",
                 "--output_dir",
-                default=".",
+                default=os.getcwd(),
                 help="directory where output files will be written to"
             )
 
@@ -30,23 +30,13 @@ def parse_args(args):
 
 if __name__=="__main__":
     args = parse_args(sys.argv[1:])
-    print("reading files from: {}".format(Path(args.input_dir).resolve()))
-
-    # collect all the files you need (i.e. all filenames that match "*.jpg")
-    for f in Path(args.input_dir).iterdir():
-        print(f.resolve())
-
-    # do your computation, processing, data cleaning, etc
     
     CURR_PATH = args.input_dir
 
-    infile = open(CURR_PATH + "/data_split.pkl",'rb')
-
-    new_dict = pickle.load(infile)
+    with open(CURR_PATH + "/data_split.pkl",'rb') as spf:
+            new_dict = pickle.load(spf)
     
-    print("_____here", new_dict)
-
-    infile.close()
+    spf.close()
 
     path = CURR_PATH
 
@@ -58,18 +48,13 @@ if __name__=="__main__":
 
     test_vol = np.array(X_test, dtype=np.float32)
     
-    print(test_vol)
-
     preds = model.predict(test_vol)
 
     pred_candidates = np.random.randint(1,test_vol.shape[0],len(preds))
 
     for i in range(len(preds)):
         img = np.squeeze(preds[pred_candidates[i]])
-        cv2.imwrite(str(test_data[i].split('.png')[0]+'_mask.png'), img)
-
-    print("writing output files to: {}".format(Path(args.output_dir).resolve()))
-    
+        cv2.imwrite(os.path.join(args.output_dir, str(test_data[i].split('.png')[0]+'_mask.png')), img)    
     
 
 

@@ -32,16 +32,11 @@ def parse_args(args):
     return parser.parse_args(args)
 
 if __name__=="__main__":
-    args = parse_args(sys.argv[1:])
-    print("reading files from: {}".format(Path(args.input_dir).resolve()))
-
-    # collect all the files you need (i.e. all filenames that match "*.jpg")
-    for f in Path(args.input_dir).iterdir():
-        print(f.resolve())
+    args = parse_args(sys.argv[1:])    
 
     # do your computation, processing, data cleaning, etc
     DIR = args.input_dir
-    filename = os.path.join(args.input_dir, "data_split.pkl")
+    filename = os.path.join(args.output_dir, "data_split.pkl")
     data = defaultdict(list)
     valid_data = list()
     mask_valid = list()
@@ -61,9 +56,7 @@ if __name__=="__main__":
     data["train"] = images + masks
     data["valid"] = valid_data
     data["test"] = test
-    print("------here", data)    
     output_file = open(filename, 'wb')
     pickle.dump(data, output_file)
     output_file.close()
 
-    print("writing output files to: {}".format(Path(args.output_dir).resolve()))

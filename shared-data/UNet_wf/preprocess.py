@@ -37,13 +37,6 @@ def parse_args(args):
 
 if __name__=="__main__":
     args = parse_args(sys.argv[1:])
-    print("reading files from: {}".format(Path(args.input_dir).resolve()))
-
-    # collect all the files you need (i.e. all filenames that match "*.jpg")
-    for f in Path(args.input_dir).iterdir():
-        print(f.resolve())
-
-    # do your computation, processing, data cleaning, etc
     DIR = args.input_dir
     X_shape = 256
     norm_img = np.zeros((800,800))
@@ -54,6 +47,5 @@ if __name__=="__main__":
 
     for i in images:        
         normalized_image = dp.normalize(i)
-        cv2.imwrite(i.split(".png")[0]+"_norm.png", normalized_image)
+        cv2.imwrite(os.path.join(args.output_dir, i.split(".png")[0]+"_norm.png"), normalized_image)
 
-    print("writing output files to: {}".format(Path(args.output_dir).resolve()))
