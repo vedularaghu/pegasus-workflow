@@ -33,16 +33,11 @@ if __name__=="__main__":
     
     CURR_PATH = args.input_dir
 
-    with open(CURR_PATH + "/data_split.pkl",'rb') as spf:
-            new_dict = pickle.load(spf)
-    
-    spf.close()
+    files = os.listdir(CURR_PATH)
 
-    path = CURR_PATH
+    test_data = [i for i in files if ".png" in i]
 
-    test_data = new_dict['test']
-
-    X_test = [cv2.imread(os.path.join(path,i))[:,:,0] for i in test_data]
+    X_test = [cv2.imread(os.path.join(CURR_PATH,i))[:,:,0] for i in test_data]
 
     model = load_model(CURR_PATH+"/model.h5", compile=False)
 
